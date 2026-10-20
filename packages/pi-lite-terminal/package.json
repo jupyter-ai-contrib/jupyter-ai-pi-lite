@@ -1,6 +1,6 @@
 {
   "name": "@jupyter-ai/pi-lite-terminal",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "The pi coding agent as a command in the JupyterLite terminal",
   "keywords": [
     "jupyter",
@@ -43,7 +43,7 @@
     "watch:labextension": "jupyter-builder watch ."
   },
   "dependencies": {
-    "@jupyter-ai/pi-lite": "^0.0.1",
+    "@jupyter-ai/pi-lite": "^0.1.0",
     "@jupyterlab/application": "^4.5.8",
     "@jupyterlite/terminal": "^1.6.2"
   },

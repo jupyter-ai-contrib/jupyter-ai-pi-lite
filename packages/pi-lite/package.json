@@ -1,6 +1,6 @@
 {
   "name": "@jupyter-ai/pi-lite",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "The pi coding agent as an in-browser persona of Jupyter AI, in the chat and in the JupyterLite terminal",
   "keywords": [
     "jupyter",
