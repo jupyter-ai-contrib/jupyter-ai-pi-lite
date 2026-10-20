@@ -10,8 +10,6 @@ The `jlpm` command is JupyterLab's pinned version of
 
 ```bash
 # Clone the repo to your local environment
-# Link @jupyter-ai/agent-lite from a checkout of jupyterlite/ai (until it is published):
-# jlpm link /path/to/jupyterlite-ai/packages/agent-lite
 # Install all packages in development mode and link labextensions
 python ./scripts/dev_install.py
 # Rebuild extension Typescript source after making changes

@@ -11,7 +11,7 @@ Pi is available in two places, with the same tools, settings, credentials and se
 
 Pi reads and writes the files of JupyterLab; in JupyterLite, it runs shell commands in the in-browser `cockle` shell.
 
-The packages are built on [`jupyter-ai-agent-lite`](https://github.com/jupyterlite/ai), the building blocks of in-browser personas.
+The packages are built on [`jupyter-ai-agent-lite`](https://github.com/jupyterlab/jupyter-ai-lite), the building blocks of in-browser personas.
 
 ## Requirements
 
