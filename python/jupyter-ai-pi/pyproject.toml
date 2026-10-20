@@ -38,10 +38,10 @@ dependencies = [
 dynamic = ["version"]
 
 [project.urls]
-Documentation = "https://github.com/jtpio/jupyter-ai-pi-lite#readme"
-Repository = "https://github.com/jtpio/jupyter-ai-pi-lite"
-Source = "https://github.com/jtpio/jupyter-ai-pi-lite/tree/main"
-Issues = "https://github.com/jtpio/jupyter-ai-pi-lite/issues/new/choose"
+Documentation = "https://github.com/jupyter-ai-contrib/jupyter-ai-pi-lite#readme"
+Repository = "https://github.com/jupyter-ai-contrib/jupyter-ai-pi-lite"
+Source = "https://github.com/jupyter-ai-contrib/jupyter-ai-pi-lite/tree/main"
+Issues = "https://github.com/jupyter-ai-contrib/jupyter-ai-pi-lite/issues/new/choose"
 
 [tool.hatch.version]
 path = "jupyter_ai_pi/_version.py"

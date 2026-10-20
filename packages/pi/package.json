@@ -9,9 +9,9 @@
     "jupyterlab-extension",
     "pi"
   ],
-  "homepage": "https://github.com/jtpio/jupyter-ai-pi-lite",
+  "homepage": "https://github.com/jupyter-ai-contrib/jupyter-ai-pi-lite",
   "bugs": {
-    "url": "https://github.com/jtpio/jupyter-ai-pi-lite/issues"
+    "url": "https://github.com/jupyter-ai-contrib/jupyter-ai-pi-lite/issues"
   },
   "license": "BSD-3-Clause",
   "author": "JupyterLite Contributors",
@@ -28,7 +28,7 @@
   "style": "style/index.css",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jtpio/jupyter-ai-pi-lite.git",
+    "url": "https://github.com/jupyter-ai-contrib/jupyter-ai-pi-lite.git",
     "directory": "packages/pi"
   },
   "scripts": {
