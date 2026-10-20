@@ -1513,7 +1513,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@jupyter-ai/pi-lite-terminal@workspace:packages/pi-lite-terminal"
   dependencies:
-    "@jupyter-ai/pi-lite": ^0.1.0
+    "@jupyter-ai/pi-lite": ^0.0.1
     "@jupyter/builder": ^1.2.2
     "@jupyterlab/application": ^4.5.8
     "@jupyterlite/terminal": ^1.6.2
@@ -1523,7 +1523,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@jupyter-ai/pi-lite@^0.1.0, @jupyter-ai/pi-lite@workspace:packages/pi-lite":
+"@jupyter-ai/pi-lite@^0.0.1, @jupyter-ai/pi-lite@workspace:packages/pi-lite":
   version: 0.0.0-use.local
   resolution: "@jupyter-ai/pi-lite@workspace:packages/pi-lite"
   dependencies:

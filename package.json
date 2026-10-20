@@ -1,6 +1,6 @@
 {
   "name": "jupyter-ai-pi-lite-monorepo",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "private": true,
   "description": "Monorepo for the pi coding agent persona of Jupyter AI",
   "workspaces": [
