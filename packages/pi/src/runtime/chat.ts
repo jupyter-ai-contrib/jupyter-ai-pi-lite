@@ -185,8 +185,7 @@ function cellsPrompt(
   documentManager?: IDocumentManager
 ): string | undefined {
   const model = documentManager?.findWidget(attachment.value)?.context.model as
-    | INotebookSource
-    | undefined;
+    INotebookSource | undefined;
   const cells = model?.sharedModel?.cells;
   if (!cells || attachment.type !== 'notebook') {
     return undefined;

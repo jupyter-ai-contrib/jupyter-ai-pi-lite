@@ -14,8 +14,7 @@ export function driveAutocomplete(
   operations: DriveOperations
 ): AutocompleteProviderFactory {
   let listing:
-    | { directory: string; time: number; entries: Contents.IModel[] }
-    | undefined;
+    { directory: string; time: number; entries: Contents.IModel[] } | undefined;
   const shim = fs as unknown as {
     listDrive?: (directory: string) => object[];
   };
