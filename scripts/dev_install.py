@@ -13,7 +13,7 @@ from pathlib import Path
 
 # Packages that include a JupyterLab extension (require jupyter-builder develop)
 EXTENSION_PACKAGES = [
-    "python/jupyter-ai-pi",
+    "python/jupyter-ai-pi-lite",
 ]
 
 # Meta-packages with no labextension
@@ -21,7 +21,7 @@ META_PACKAGES = []
 
 # JupyterLab cannot load these: they need modules that only JupyterLite provides.
 LITE_PACKAGES = [
-    "python/jupyter-ai-pi-terminal",
+    "python/jupyter-ai-pi-lite-terminal",
 ]
 
 

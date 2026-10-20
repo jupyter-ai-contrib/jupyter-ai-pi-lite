@@ -20,7 +20,7 @@ export interface IPiAgent {
 }
 
 export const IPiAgent = new Token<IPiAgent>(
-  '@jupyter-ai/pi:IPiAgent',
+  '@jupyter-ai/pi-lite:IPiAgent',
   'The pi coding agent.'
 );
 
@@ -28,7 +28,7 @@ export const IPiAgent = new Token<IPiAgent>(
  * The plugin of the pi agent: also the namespace of its settings and of its
  * secrets.
  */
-export const AGENT_PLUGIN_ID = '@jupyter-ai/pi:agent';
+export const AGENT_PLUGIN_ID = '@jupyter-ai/pi-lite:agent';
 
 /**
  * The chat user of the pi persona.

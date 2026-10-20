@@ -19,9 +19,9 @@ export default defineConfig([
       '**/__tests__',
       'ui-tests',
       'demo',
-      'python/jupyter-ai-pi/jupyter_ai_pi',
-      'python/jupyter-ai-pi-terminal/jupyter_ai_pi_terminal',
-      'packages/pi/shims'
+      'python/jupyter-ai-pi-lite/jupyter_ai_pi_lite',
+      'python/jupyter-ai-pi-lite-terminal/jupyter_ai_pi_lite_terminal',
+      'packages/pi-lite/shims'
     ]
   },
   js.configs.recommended,

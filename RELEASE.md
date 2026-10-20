@@ -1,4 +1,4 @@
-# Making a new release of jupyter-ai-pi
+# Making a new release of jupyter-ai-pi-lite
 
 The extension can be published to `PyPI` and `npm` using the [Jupyter Releaser](https://github.com/jupyter-server/jupyter_releaser).
 

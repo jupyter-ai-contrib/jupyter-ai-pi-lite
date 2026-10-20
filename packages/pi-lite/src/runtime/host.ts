@@ -466,7 +466,7 @@ export class PiHost {
         await this._credentials.useSecretsManager(value);
       } catch (error) {
         const trans = (this._options.translator ?? nullTranslator).load(
-          'jupyter_ai_pi'
+          'jupyter_ai_pi_lite'
         );
         // The dialog shows the store: only the setting can stop the retries.
         Notification.error(

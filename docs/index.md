@@ -1,19 +1,19 @@
 # Pi coding agent
 
-`jupyter-ai-pi` runs the [pi coding agent](https://pi.dev)
+`jupyter-ai-pi-lite` runs the [pi coding agent](https://pi.dev)
 (`@earendil-works/pi-coding-agent`) in the browser, in JupyterLab and in
 JupyterLite. Pi is available in two places, with the same tools, settings,
 credentials and sessions:
 
 - in the chats, as a persona next to the others (Jupyternaut for example);
 - in the JupyterLite terminal, as the `pi` command, with the interactive
-  interface of pi itself (with `jupyter-ai-pi-terminal`).
+  interface of pi itself (with `jupyter-ai-pi-lite-terminal`).
 
 Pi brings its own agent loop: sessions saved to files, automatic retries,
 context compaction, skills, prompt templates, steering and follow-up messages,
 and the model providers of `@earendil-works/pi-ai`.
 
-We recommend `jupyter-ai-pi` for JupyterLite, where no server can run pi.
+We recommend `jupyter-ai-pi-lite` for JupyterLite, where no server can run pi.
 The `pi` command needs the JupyterLite terminal. With a Jupyter server, you can
 run pi itself on the server:
 [jupyter-ai-acp-client](https://github.com/jupyter-ai-contrib/jupyter-ai-acp-client)
@@ -24,11 +24,11 @@ pi persona, but a persona that derives from its `BaseAcpPersona` can start the
 ## Install
 
 ```bash
-pip install jupyter-ai-pi
+pip install jupyter-ai-pi-lite
 ```
 
 For the `pi` command in the JupyterLite terminal, also install
-`jupyter-ai-pi-terminal` (it installs `jupyterlite-terminal` and JupyterLite
+`jupyter-ai-pi-lite-terminal` (it installs `jupyterlite-terminal` and JupyterLite
 0.8.6 or later) and enable the terminals in `jupyter-lite.json`:
 
 ```json
@@ -41,7 +41,7 @@ For the `pi` command in the JupyterLite terminal, also install
 ```
 
 The chat persona needs the persona manager of Jupyter AI, which
-`jupyter-ai-pi` installs. To select pi by default when the chat opens, set the
+`jupyter-ai-pi-lite` installs. To select pi by default when the chat opens, set the
 default persona in the page configuration (`jupyter-lite.json` for
 JupyterLite):
 

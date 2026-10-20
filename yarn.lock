@@ -1509,11 +1509,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jupyter-ai/pi-terminal@workspace:packages/pi-terminal":
+"@jupyter-ai/pi-lite-terminal@workspace:packages/pi-lite-terminal":
   version: 0.0.0-use.local
-  resolution: "@jupyter-ai/pi-terminal@workspace:packages/pi-terminal"
+  resolution: "@jupyter-ai/pi-lite-terminal@workspace:packages/pi-lite-terminal"
   dependencies:
-    "@jupyter-ai/pi": ^0.1.0
+    "@jupyter-ai/pi-lite": ^0.1.0
     "@jupyter/builder": ^1.2.2
     "@jupyterlab/application": ^4.5.8
     "@jupyterlite/terminal": ^1.6.2
@@ -1523,9 +1523,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@jupyter-ai/pi@^0.1.0, @jupyter-ai/pi@workspace:packages/pi":
+"@jupyter-ai/pi-lite@^0.1.0, @jupyter-ai/pi-lite@workspace:packages/pi-lite":
   version: 0.0.0-use.local
-  resolution: "@jupyter-ai/pi@workspace:packages/pi"
+  resolution: "@jupyter-ai/pi-lite@workspace:packages/pi-lite"
   dependencies:
     "@earendil-works/pi-ai": ^1.3.0
     "@earendil-works/pi-coding-agent": ^1.3.0
@@ -6422,9 +6422,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jupyter-ai-pi-monorepo@workspace:.":
+"jupyter-ai-pi-lite-monorepo@workspace:.":
   version: 0.0.0-use.local
-  resolution: "jupyter-ai-pi-monorepo@workspace:."
+  resolution: "jupyter-ai-pi-lite-monorepo@workspace:."
   dependencies:
     "@eslint/js": ^9.26.0
     "@jupyter/eslint-plugin": ^1.3.0

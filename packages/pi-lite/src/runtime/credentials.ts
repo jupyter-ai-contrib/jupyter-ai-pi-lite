@@ -15,7 +15,7 @@ const AUTH_FILE = path.posix.join(AGENT_DIR, 'auth.json');
 /**
  * Tells the other tabs that the secrets of pi changed or moved.
  */
-const CHANNEL = 'jupyter-ai-pi:credentials';
+const CHANNEL = 'jupyter-ai-pi-lite:credentials';
 
 /**
  * A connector that never answers (none is set) must not block pi.

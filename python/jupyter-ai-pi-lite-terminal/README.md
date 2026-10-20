@@ -1,4 +1,4 @@
-# jupyter-ai-pi-terminal
+# jupyter-ai-pi-lite-terminal
 
 The [pi coding agent](https://pi.dev) as a `pi` command (alias `ai`) in the
 [JupyterLite terminal](https://github.com/jupyterlite/terminal), with the
@@ -7,7 +7,7 @@ interactive interface of pi.
 ## Install
 
 ```bash
-pip install jupyter-ai-pi-terminal
+pip install jupyter-ai-pi-lite-terminal
 ```
 
 This also installs `jupyterlite-terminal` and JupyterLite 0.8.6 or later.

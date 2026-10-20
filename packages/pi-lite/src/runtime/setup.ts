@@ -558,7 +558,7 @@ export async function addProvider(
   options: addProvider.IOptions = {}
 ): Promise<boolean> {
   const { translator, setUseSecretsManager } = options;
-  const trans = (translator ?? nullTranslator).load('jupyter_ai_pi');
+  const trans = (translator ?? nullTranslator).load('jupyter_ai_pi_lite');
   const config: IModelsConfig | undefined = readConfig(MODELS_FILE, trans);
   if (!config) {
     return false;

@@ -3,7 +3,7 @@ requires = ["hatchling>=1.5.0", "jupyter-builder>=1.2.2"]
 build-backend = "hatchling.build"
 
 [project]
-name = "jupyter_ai_pi"
+name = "jupyter_ai_pi_lite"
 readme = "README.md"
 license = { file = "LICENSE" }
 requires-python = ">=3.10"
@@ -44,24 +44,24 @@ Source = "https://github.com/jupyter-ai-contrib/jupyter-ai-pi-lite/tree/main"
 Issues = "https://github.com/jupyter-ai-contrib/jupyter-ai-pi-lite/issues/new/choose"
 
 [tool.hatch.version]
-path = "jupyter_ai_pi/_version.py"
+path = "jupyter_ai_pi_lite/_version.py"
 
 [tool.hatch.build.targets.sdist]
-artifacts = ["jupyter_ai_pi/labextension"]
+artifacts = ["jupyter_ai_pi_lite/labextension"]
 exclude = [".github", "binder"]
 
 [tool.hatch.build.targets.wheel.shared-data]
-"jupyter_ai_pi/labextension" = "share/jupyter/labextensions/@jupyter-ai/pi"
-"install.json" = "share/jupyter/labextensions/@jupyter-ai/pi/install.json"
+"jupyter_ai_pi_lite/labextension" = "share/jupyter/labextensions/@jupyter-ai/pi-lite"
+"install.json" = "share/jupyter/labextensions/@jupyter-ai/pi-lite/install.json"
 
 [tool.hatch.build.hooks.jupyter-builder]
 dependencies = ["hatch-jupyter-builder>=0.5"]
 build-function = "hatch_jupyter_builder.npm_builder"
 ensured-targets = [
-    "jupyter_ai_pi/labextension/static/style.js",
-    "jupyter_ai_pi/labextension/package.json",
+    "jupyter_ai_pi_lite/labextension/static/style.js",
+    "jupyter_ai_pi_lite/labextension/package.json",
 ]
-skip-if-exists = ["jupyter_ai_pi/labextension/static/style.js"]
+skip-if-exists = ["jupyter_ai_pi_lite/labextension/static/style.js"]
 
 [tool.hatch.build.hooks.jupyter-builder.build-kwargs]
 build_cmd = "build:prod"
@@ -72,7 +72,7 @@ path = "../.."
 npm = ["jlpm"]
 build_cmd = "build:prod"
 editable_build_cmd = "build"
-build_dir = "jupyter_ai_pi/labextension"
+build_dir = "jupyter_ai_pi_lite/labextension"
 path = "../.."
 
 [tool.check-wheel-contents]
