@@ -1,5 +1,5 @@
 {
-  "name": "jupyter-ai-pi-monorepo",
+  "name": "jupyter-ai-pi-lite-monorepo",
   "version": "0.1.0",
   "private": true,
   "description": "Monorepo for the pi coding agent persona of Jupyter AI",
@@ -8,11 +8,11 @@
   ],
   "scripts": {
     "build": "jlpm build:all",
-    "build:all": "jlpm workspace @jupyter-ai/pi build && jlpm workspace @jupyter-ai/pi-terminal build",
-    "build:prod": "jlpm workspace @jupyter-ai/pi build:prod && jlpm workspace @jupyter-ai/pi-terminal build:prod",
-    "clean": "jlpm workspace @jupyter-ai/pi clean && jlpm workspace @jupyter-ai/pi-terminal clean",
+    "build:all": "jlpm workspace @jupyter-ai/pi-lite build && jlpm workspace @jupyter-ai/pi-lite-terminal build",
+    "build:prod": "jlpm workspace @jupyter-ai/pi-lite build:prod && jlpm workspace @jupyter-ai/pi-lite-terminal build:prod",
+    "clean": "jlpm workspace @jupyter-ai/pi-lite clean && jlpm workspace @jupyter-ai/pi-lite-terminal clean",
     "clean:lintcache": "rimraf .eslintcache .stylelintcache",
-    "clean:labextension": "rimraf python/jupyter-ai-pi/jupyter_ai_pi/labextension python/jupyter-ai-pi-terminal/jupyter_ai_pi_terminal/labextension",
+    "clean:labextension": "rimraf python/jupyter-ai-pi-lite/jupyter_ai_pi_lite/labextension python/jupyter-ai-pi-lite-terminal/jupyter_ai_pi_lite_terminal/labextension",
     "clean:all": "jlpm clean && jlpm clean:labextension && jlpm clean:lintcache",
     "docs": "jupyter book start",
     "docs:build": "sed -e 's/\\[@/[/g' -e 's/@/\\&#64;/g' CHANGELOG.md > docs/_changelog_content.md && jupyter book build --html",
@@ -24,7 +24,7 @@
     "prettier:check": "prettier --list-different \"**/*{.ts,.tsx,.js,.jsx,.mjs,.css,.json,.md,.yml}\"",
     "stylelint": "jlpm stylelint:check --fix",
     "stylelint:check": "stylelint --cache \"**/style/**/*.css\"",
-    "watch": "jlpm workspace @jupyter-ai/pi run watch"
+    "watch": "jlpm workspace @jupyter-ai/pi-lite run watch"
   },
   "devDependencies": {
     "@eslint/js": "^9.26.0",

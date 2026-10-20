@@ -1,4 +1,4 @@
-# jupyter-ai-pi
+# jupyter-ai-pi-lite
 
 [![Github Actions Status](https://github.com/jupyter-ai-contrib/jupyter-ai-pi-lite/workflows/Build/badge.svg)](https://github.com/jupyter-ai-contrib/jupyter-ai-pi-lite/actions/workflows/build.yml)
 
@@ -6,8 +6,8 @@ The [pi coding agent](https://pi.dev) as an in-browser persona of [Jupyter AI](h
 
 Pi is available in two places, with the same tools, settings, credentials and sessions:
 
-- in the chats, as a persona (`jupyter-ai-pi`);
-- in the JupyterLite terminal, as the `pi` command, with the interactive interface of pi itself (`jupyter-ai-pi-terminal`).
+- in the chats, as a persona (`jupyter-ai-pi-lite`);
+- in the JupyterLite terminal, as the `pi` command, with the interactive interface of pi itself (`jupyter-ai-pi-lite-terminal`).
 
 Pi reads and writes the files of JupyterLab; in JupyterLite, it runs shell commands in the in-browser `cockle` shell.
 
@@ -21,13 +21,13 @@ The packages are built on [`jupyter-ai-agent-lite`](https://github.com/jupyterla
 ## Install
 
 ```bash
-pip install jupyter-ai-pi
+pip install jupyter-ai-pi-lite
 ```
 
 For the `pi` command in the JupyterLite terminal:
 
 ```bash
-pip install jupyter-ai-pi-terminal
+pip install jupyter-ai-pi-lite-terminal
 ```
 
 ## Documentation
@@ -37,7 +37,7 @@ See the [documentation](docs/index.md).
 ## Uninstall
 
 ```bash
-pip uninstall jupyter-ai-pi jupyter-ai-pi-terminal
+pip uninstall jupyter-ai-pi-lite jupyter-ai-pi-lite-terminal
 ```
 
 ## Contributing

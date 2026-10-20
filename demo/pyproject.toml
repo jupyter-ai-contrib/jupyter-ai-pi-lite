@@ -1,5 +1,5 @@
 [project]
-name = "jupyter-ai-pi-demo"
+name = "jupyter-ai-pi-lite-demo"
 version = "0.1.0"
 description = "JupyterLite AI Demo"
 readme = "README.md"
@@ -9,13 +9,13 @@ dependencies = [
     "jupyterlab>=4.5.0",
     "jupyterlab-day>=0.2.0",
     "jupyterlab-night>=0.5.2",
-    "jupyter-ai-pi",
-    "jupyter-ai-pi-terminal",
+    "jupyter-ai-pi-lite",
+    "jupyter-ai-pi-lite-terminal",
     "jupyterlite-terminal>=1.6.2",
     "jupyterlite-core>=0.8.6",
     "jupyterlite-pyodide-kernel>=0.8.5",
 ]
 
 [tool.uv.sources]
-jupyter-ai-pi = { path = "../python/jupyter-ai-pi" }
-jupyter-ai-pi-terminal = { path = "../python/jupyter-ai-pi-terminal" }
+jupyter-ai-pi-lite = { path = "../python/jupyter-ai-pi-lite" }
+jupyter-ai-pi-lite-terminal = { path = "../python/jupyter-ai-pi-lite-terminal" }

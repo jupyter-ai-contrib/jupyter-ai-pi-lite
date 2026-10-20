@@ -3,13 +3,13 @@ import type {
   JupyterFrontEndPlugin
 } from '@jupyterlab/application';
 import { ILiteTerminalAPIClient } from '@jupyterlite/terminal';
-import { IPiAgent } from '@jupyter-ai/pi';
+import { IPiAgent } from '@jupyter-ai/pi-lite';
 
 /**
  * Register the `pi` command (and its `ai` alias) in JupyterLite terminals.
  */
 const plugin: JupyterFrontEndPlugin<void> = {
-  id: '@jupyter-ai/pi-terminal:plugin',
+  id: '@jupyter-ai/pi-lite-terminal:plugin',
   description: 'The pi coding agent as a command in the JupyterLite terminal',
   autoStart: true,
   requires: [ILiteTerminalAPIClient, IPiAgent],

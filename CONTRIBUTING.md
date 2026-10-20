@@ -53,13 +53,13 @@ jlpm docs:build
 ## Development uninstall
 
 ```bash
-pip uninstall jupyter-ai-pi
-pip uninstall jupyter-ai-pi-terminal
+pip uninstall jupyter-ai-pi-lite
+pip uninstall jupyter-ai-pi-lite-terminal
 ```
 
 In development mode, you will also need to remove the symlink created by `jupyter-builder develop`
 command. To find its location, you can run `jupyter labextension list` to figure out where the `labextensions`
-folder is located. Then you can remove the symlinks named `@jupyter-ai/pi` and `@jupyter-ai/pi-terminal`
+folder is located. Then you can remove the symlinks named `@jupyter-ai/pi-lite` and `@jupyter-ai/pi-lite-terminal`
 within that folder.
 
 ## Packaging the extension

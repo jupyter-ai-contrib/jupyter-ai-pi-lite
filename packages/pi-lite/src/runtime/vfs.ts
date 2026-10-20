@@ -56,7 +56,7 @@ export function isPrivateFile(file: string): boolean {
   );
 }
 
-const DATABASE = 'jupyter-ai-pi';
+const DATABASE = 'jupyter-ai-pi-lite';
 /**
  * One record for each private file, keyed by its name.
  */
@@ -132,7 +132,7 @@ let reloading = Promise.resolve();
  */
 let privateLoaded = false;
 let driveLoaded = false;
-let trans = nullTranslator.load('jupyter_ai_pi');
+let trans = nullTranslator.load('jupyter_ai_pi_lite');
 let saveTimer: number | undefined;
 const dirty = new Set<string>();
 let uploadTimer: number | undefined;
@@ -721,7 +721,7 @@ interface IRestoreOptions {
  * changed file and take the files that change outside pi.
  */
 export function restoreAgentDir(options: IRestoreOptions): Promise<void> {
-  trans = (options.translator ?? nullTranslator).load('jupyter_ai_pi');
+  trans = (options.translator ?? nullTranslator).load('jupyter_ai_pi_lite');
   return (restoring ??= restore(options));
 }
 

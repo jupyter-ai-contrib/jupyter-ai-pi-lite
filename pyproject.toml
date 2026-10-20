@@ -3,7 +3,7 @@ requires = ["hatchling", "hatch-nodejs-version>=0.3.2"]
 build-backend = "hatchling.build"
 
 [project]
-name = "jupyter-ai-pi-monorepo"
+name = "jupyter-ai-pi-lite-monorepo"
 description = "Monorepo root for the pi coding agent persona of Jupyter AI"
 readme = "README.md"
 license = { file = "LICENSE" }
@@ -27,8 +27,8 @@ skip = ["check-python"]
 [tool.jupyter-releaser.options]
 version_cmd = "cd ../.. && python scripts/bump_version.py --skip-if-dirty"
 python_packages = [
-    "python/jupyter-ai-pi",
-    "python/jupyter-ai-pi-terminal"
+    "python/jupyter-ai-pi-lite",
+    "python/jupyter-ai-pi-lite-terminal"
 ]
 
 [tool.jupyter-releaser.hooks]

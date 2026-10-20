@@ -10,8 +10,8 @@ packages/*/tsconfig.tsbuildinfo
 *.egg-info/
 .ipynb_checkpoints
 *.tsbuildinfo
-python/jupyter-ai-pi/jupyter_ai_pi/labextension
-python/jupyter-ai-pi-terminal/jupyter_ai_pi_terminal/labextension
+python/jupyter-ai-pi-lite/jupyter_ai_pi_lite/labextension
+python/jupyter-ai-pi-lite-terminal/jupyter_ai_pi_lite_terminal/labextension
 
 # Created by https://www.gitignore.io/api/python
 # Edit at https://www.gitignore.io/?templates=python

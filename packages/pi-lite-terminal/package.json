@@ -1,5 +1,5 @@
 {
-  "name": "@jupyter-ai/pi-terminal",
+  "name": "@jupyter-ai/pi-lite-terminal",
   "version": "0.1.0",
   "description": "The pi coding agent as a command in the JupyterLite terminal",
   "keywords": [
@@ -25,12 +25,12 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/jupyter-ai-contrib/jupyter-ai-pi-lite.git",
-    "directory": "packages/pi-terminal"
+    "directory": "packages/pi-lite-terminal"
   },
   "scripts": {
-    "build": "echo 'Building @jupyter-ai/pi-terminal' && jlpm build:lib && jlpm build:labextension:dev",
-    "build:dev": "echo 'Building @jupyter-ai/pi-terminal' && jlpm build:lib && jlpm build:labextension:dev",
-    "build:prod": "echo 'Building @jupyter-ai/pi-terminal' && jlpm clean && jlpm build:lib:prod && jlpm build:labextension",
+    "build": "echo 'Building @jupyter-ai/pi-lite-terminal' && jlpm build:lib && jlpm build:labextension:dev",
+    "build:dev": "echo 'Building @jupyter-ai/pi-lite-terminal' && jlpm build:lib && jlpm build:labextension:dev",
+    "build:prod": "echo 'Building @jupyter-ai/pi-lite-terminal' && jlpm clean && jlpm build:lib:prod && jlpm build:labextension",
     "build:labextension": "jupyter-builder build .",
     "build:labextension:dev": "jupyter-builder build --development True .",
     "build:lib": "tsc --sourceMap",
@@ -43,7 +43,7 @@
     "watch:labextension": "jupyter-builder watch ."
   },
   "dependencies": {
-    "@jupyter-ai/pi": "^0.1.0",
+    "@jupyter-ai/pi-lite": "^0.1.0",
     "@jupyterlab/application": "^4.5.8",
     "@jupyterlite/terminal": "^1.6.2"
   },
@@ -63,13 +63,13 @@
   },
   "jupyterlab": {
     "extension": true,
-    "outputDir": "../../python/jupyter-ai-pi-terminal/jupyter_ai_pi_terminal/labextension",
+    "outputDir": "../../python/jupyter-ai-pi-lite-terminal/jupyter_ai_pi_lite_terminal/labextension",
     "sharedPackages": {
       "@jupyterlite/terminal": {
         "bundled": false,
         "singleton": true
       },
-      "@jupyter-ai/pi": {
+      "@jupyter-ai/pi-lite": {
         "bundled": false,
         "singleton": true
       }

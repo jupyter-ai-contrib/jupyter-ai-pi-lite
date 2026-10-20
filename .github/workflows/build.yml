@@ -37,7 +37,7 @@ jobs:
           python scripts/dev_install.py test --no-lite
 
           jupyter labextension list
-          jupyter labextension list 2>&1 | grep -ie "@jupyter-ai/pi .*OK"
+          jupyter labextension list 2>&1 | grep -ie "@jupyter-ai/pi-lite .*OK"
           python -m jupyterlab.browser_check
 
       - name: Package the extension
@@ -45,17 +45,17 @@ jobs:
           set -eux
 
           pip install build
-          python -m build python/jupyter-ai-pi --outdir dist
-          python -m build python/jupyter-ai-pi-terminal --outdir dist
-          pip uninstall -y "jupyter_ai_pi" "jupyter_ai_pi_terminal" jupyterlab
+          python -m build python/jupyter-ai-pi-lite --outdir dist
+          python -m build python/jupyter-ai-pi-lite-terminal --outdir dist
+          pip uninstall -y "jupyter_ai_pi_lite" "jupyter_ai_pi_lite_terminal" jupyterlab
 
       - name: Upload extension packages
         uses: actions/upload-artifact@v7
         with:
           name: extension-artifacts
           path: |
-            dist/jupyter_ai_pi*
-            dist/jupyter_ai_pi_terminal*
+            dist/jupyter_ai_pi_lite*
+            dist/jupyter_ai_pi_lite_terminal*
           if-no-files-found: error
 
   test_isolated:
@@ -81,11 +81,11 @@ jobs:
           sudo rm -rf $(which node)
           sudo rm -rf $(which node)
 
-          pip install "jupyterlab>=4.0.0,<5" jupyter_ai_pi*.whl jupyter_ai_pi_terminal*.whl
+          pip install "jupyterlab>=4.0.0,<5" jupyter_ai_pi_lite*.whl jupyter_ai_pi_lite_terminal*.whl
 
           jupyter labextension list
-          jupyter labextension list 2>&1 | grep -ie "@jupyter-ai/pi .*OK"
-          jupyter labextension list 2>&1 | grep -ie "@jupyter-ai/pi-terminal.*OK"
+          jupyter labextension list 2>&1 | grep -ie "@jupyter-ai/pi-lite .*OK"
+          jupyter labextension list 2>&1 | grep -ie "@jupyter-ai/pi-lite-terminal.*OK"
           python -m jupyterlab.browser_check --no-browser-test
 
   check_links:

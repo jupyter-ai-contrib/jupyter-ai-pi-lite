@@ -47,10 +47,10 @@ jobs:
           set -eux
           python scripts/bump_version.py 1.2.3
           # Check Python version files
-          grep '__version__ = "1.2.3"' python/jupyter-ai-pi/jupyter_ai_pi/_version.py
-          grep '__version__ = "1.2.3"' python/jupyter-ai-pi-terminal/jupyter_ai_pi_terminal/_version.py
+          grep '__version__ = "1.2.3"' python/jupyter-ai-pi-lite/jupyter_ai_pi_lite/_version.py
+          grep '__version__ = "1.2.3"' python/jupyter-ai-pi-lite-terminal/jupyter_ai_pi_lite_terminal/_version.py
           # Check intra-monorepo dependency constraint
-          grep 'jupyter-ai-pi ==1.2.3' python/jupyter-ai-pi-terminal/pyproject.toml
+          grep 'jupyter-ai-pi-lite ==1.2.3' python/jupyter-ai-pi-lite-terminal/pyproject.toml
           # Check root package.json
           python3 <<'PY'
           import json
@@ -66,8 +66,8 @@ jobs:
               data = json.loads(pkg_file.read_text())
               assert data['version'] == '1.2.3', f"{pkg_file}: Expected 1.2.3, got {data['version']}"
           PY
-          # Check demo uv.lock: the jupyter-ai-pi specifier updated, nothing else changed
-          grep 'name = "jupyter-ai-pi", specifier = "==1.2.3"' demo/uv.lock
+          # Check demo uv.lock: the jupyter-ai-pi-lite specifier updated, nothing else changed
+          grep 'name = "jupyter-ai-pi-lite", specifier = "==1.2.3"' demo/uv.lock
           diff_lines=$(git diff -- demo/uv.lock | grep '^[+-]' | grep -v '^[+-][+-][+-]' | grep -v 'specifier = "==' | wc -l)
           [ "$diff_lines" -eq 0 ]
 
@@ -77,9 +77,9 @@ jobs:
           # Reset to original state first
           git checkout .
           python scripts/bump_version.py 2.0.0a1
-          grep '__version__ = "2.0.0a1"' python/jupyter-ai-pi/jupyter_ai_pi/_version.py
-          grep '__version__ = "2.0.0a1"' python/jupyter-ai-pi-terminal/jupyter_ai_pi_terminal/_version.py
-          grep 'jupyter-ai-pi ==2.0.0a1' python/jupyter-ai-pi-terminal/pyproject.toml
+          grep '__version__ = "2.0.0a1"' python/jupyter-ai-pi-lite/jupyter_ai_pi_lite/_version.py
+          grep '__version__ = "2.0.0a1"' python/jupyter-ai-pi-lite-terminal/jupyter_ai_pi_lite_terminal/_version.py
+          grep 'jupyter-ai-pi-lite ==2.0.0a1' python/jupyter-ai-pi-lite-terminal/pyproject.toml
           python3 <<'PY'
           import json
           with open('package.json') as f:

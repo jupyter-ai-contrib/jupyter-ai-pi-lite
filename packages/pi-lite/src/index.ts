@@ -22,8 +22,8 @@ import { attachPiChat } from './persona';
 import { AGENT_PLUGIN_ID, IPiAgent } from './tokens';
 
 namespace CommandIds {
-  export const addProvider = '@jupyter-ai/pi:add-provider';
-  export const openAgentFolder = '@jupyter-ai/pi:open-agent-folder';
+  export const addProvider = '@jupyter-ai/pi-lite:add-provider';
+  export const openAgentFolder = '@jupyter-ai/pi-lite:open-agent-folder';
 }
 
 const GO_TO_PATH = 'filebrowser:go-to-path';
@@ -78,7 +78,7 @@ const agentPlugin = signed<IPiAgent>(token => ({
     secretsManager: ISecretsManager | null,
     settingRegistry: ISettingRegistry | null
   ): IPiAgent => {
-    const trans = (translator ?? nullTranslator).load('jupyter_ai_pi');
+    const trans = (translator ?? nullTranslator).load('jupyter_ai_pi_lite');
     const agent = new PiAgent({
       app,
       toolRegistry: toolRegistry ?? undefined,
@@ -126,7 +126,7 @@ const agentPlugin = signed<IPiAgent>(token => ({
  * pi as a persona of the chats, next to Jupyternaut.
  */
 const personaPlugin: JupyterFrontEndPlugin<void> = {
-  id: '@jupyter-ai/pi:persona',
+  id: '@jupyter-ai/pi-lite:persona',
   description: 'Add pi to the personas of the chats',
   autoStart: true,
   requires: [IPiAgent],
@@ -147,7 +147,7 @@ const personaPlugin: JupyterFrontEndPlugin<void> = {
     if (!chatTracker || !registry || !(agent instanceof PiAgent)) {
       return;
     }
-    const trans = (translator ?? nullTranslator).load('jupyter_ai_pi');
+    const trans = (translator ?? nullTranslator).load('jupyter_ai_pi_lite');
     const attach = (panel: IChatPanel) =>
       attachPiChat(panel, agent, registry, { shell: app.shell, trans });
     chatTracker.forEach(attach);
