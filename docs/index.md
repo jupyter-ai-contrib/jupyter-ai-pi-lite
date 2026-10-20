@@ -201,7 +201,7 @@ answer "this session only" lasts until the page reloads.
 On a Jupyter server, the contents API hides dotfiles by default: set
 `c.ContentsManager.allow_hidden = True` so that pi can read and write `.pi`,
 `.agents` and the other dotfiles (see
-[Using skills with JupyterLab](skills.md#using-skills-with-jupyterlab)).
+[Using skills with JupyterLab](https://jupyter-ai-lite.readthedocs.io/en/latest/skills/#using-skills-with-jupyterlab)).
 
 ## Where pi keeps its data
 
