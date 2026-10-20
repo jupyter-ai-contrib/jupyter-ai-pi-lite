@@ -1,6 +1,6 @@
 # jupyter-ai-pi
 
-[![Github Actions Status](https://github.com/jtpio/jupyter-ai-pi-lite/workflows/Build/badge.svg)](https://github.com/jtpio/jupyter-ai-pi-lite/actions/workflows/build.yml)
+[![Github Actions Status](https://github.com/jupyter-ai-contrib/jupyter-ai-pi-lite/workflows/Build/badge.svg)](https://github.com/jupyter-ai-contrib/jupyter-ai-pi-lite/actions/workflows/build.yml)
 
 The [pi coding agent](https://pi.dev) as an in-browser persona of [Jupyter AI](https://github.com/jupyterlab/jupyter-ai), for JupyterLab, Notebook 7 and JupyterLite.
 
