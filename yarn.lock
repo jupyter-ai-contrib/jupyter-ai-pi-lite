@@ -743,23 +743,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@earendil-works/pi-agent-core@npm:1.3.0":
-  version: 1.3.0
-  resolution: "@earendil-works/pi-agent-core@npm:1.3.0"
+"@earendil-works/pi-agent-core@npm:1.4.0":
+  version: 1.4.0
+  resolution: "@earendil-works/pi-agent-core@npm:1.4.0"
   dependencies:
-    "@earendil-works/pi-ai": 1.3.0
+    "@earendil-works/pi-ai": 1.4.0
     typebox: 1.3.27
-  checksum: 938beacd58f8b429903dec35768dac2bec588caa9288e38976022cd64399f712e159ded674835109f6fe681bce6848eb9d33d980a3c56229a189fe61418995bd
+  checksum: 4307298b5f1e5136da75398b47c1cc6ff5ad4fd13c9490b20e376f81ccb8014a9d4f7e9db7252b9cd066f7223eed85d6400397615a9bc74352f818ff840eaa0c
   languageName: node
   linkType: hard
 
-"@earendil-works/pi-ai@npm:1.3.0, @earendil-works/pi-ai@npm:^1.3.0":
-  version: 1.3.0
-  resolution: "@earendil-works/pi-ai@npm:1.3.0"
+"@earendil-works/pi-ai@npm:1.4.0, @earendil-works/pi-ai@npm:^1.4.0":
+  version: 1.4.0
+  resolution: "@earendil-works/pi-ai@npm:1.4.0"
   dependencies:
     "@anthropic-ai/sdk": 0.129.0
     "@aws-sdk/client-bedrock-runtime": 3.1127.0
-    "@earendil-works/pi-telemetry": 1.3.0
+    "@earendil-works/pi-telemetry": 1.4.0
     "@google/genai": 2.21.0
     "@smithy/node-http-handler": 4.12.1
     http-proxy-agent: 9.1.0
@@ -769,28 +769,28 @@ __metadata:
     typebox: 1.3.27
   bin:
     pi-ai: dist/cli.js
-  checksum: 83abfc8f5dd87c5011fa7a16905664fa4da6d4365ec6345063b22c16c6aaf28c012ffd5f5979029a840d44b0502a10041d21589ff3c2bace2be0dd4614fe95d0
+  checksum: 8876c48eb7b388a6d8504c5f8a25d2c45307a88e5870c9630dd13cf90dcd9b264b1771d00dfe55b492d74d4c8b1ebfe5ae896e49874d909f4fe9f8c2dc75d944
   languageName: node
   linkType: hard
 
-"@earendil-works/pi-codemode@npm:1.3.0":
-  version: 1.3.0
-  resolution: "@earendil-works/pi-codemode@npm:1.3.0"
+"@earendil-works/pi-codemode@npm:1.4.0":
+  version: 1.4.0
+  resolution: "@earendil-works/pi-codemode@npm:1.4.0"
   dependencies:
     quickjs-wasi: 3.6.2
-  checksum: 2867fc8d766d50a998a6bdb5e054c46a1cc9de5199746ce997902618ac37e80c3c4a349c5282ef186b04bc4532d49f3d1b48e6c2a52f3fef9cb60c15cd645669
+  checksum: be7c163a12389d8ac0ff88e9a154b9ac757a15ecd0511ac9e2597e70f9aad3a48521513f62ba817cf08458f7caafb807f8b6205ec772a9a882c0bc81cd2a10e3
   languageName: node
   linkType: hard
 
-"@earendil-works/pi-coding-agent@npm:^1.3.0":
-  version: 1.3.0
-  resolution: "@earendil-works/pi-coding-agent@npm:1.3.0"
+"@earendil-works/pi-coding-agent@npm:^1.4.0":
+  version: 1.4.0
+  resolution: "@earendil-works/pi-coding-agent@npm:1.4.0"
   dependencies:
-    "@earendil-works/pi-agent-core": 1.3.0
-    "@earendil-works/pi-ai": 1.3.0
-    "@earendil-works/pi-codemode": 1.3.0
-    "@earendil-works/pi-mcp": 1.3.0
-    "@earendil-works/pi-tui": 1.3.0
+    "@earendil-works/pi-agent-core": 1.4.0
+    "@earendil-works/pi-ai": 1.4.0
+    "@earendil-works/pi-codemode": 1.4.0
+    "@earendil-works/pi-mcp": 1.4.0
+    "@earendil-works/pi-tui": 1.4.0
     "@silvia-odwyer/photon-node": 0.3.4
     brace-expansion: 5.0.12
     chalk: 6.0.0
@@ -810,33 +810,34 @@ __metadata:
     yaml: 2.9.0
   bin:
     pi: dist/bundle/cli.js
-  checksum: 21a624c80f59aa48ff76b1b59420a6fa0ff902e4abaf510b839e5ada03ce206bae80489376e48fa44f761688fa89199afc3dd6f8fd7b9f51ccaebc434e209b8f
+  checksum: 5347bed7cd921c5b52870cc527bf90b13503e09e7bc5483faab8ba2338b331241f5f0b636f48e9baa2dfab9c3b347be2addb46d3e76ea2dd5accd5acf577aed9
   languageName: node
   linkType: hard
 
-"@earendil-works/pi-mcp@npm:1.3.0, @earendil-works/pi-mcp@npm:^1.3.0":
-  version: 1.3.0
-  resolution: "@earendil-works/pi-mcp@npm:1.3.0"
+"@earendil-works/pi-mcp@npm:1.4.0, @earendil-works/pi-mcp@npm:^1.4.0":
+  version: 1.4.0
+  resolution: "@earendil-works/pi-mcp@npm:1.4.0"
   dependencies:
     cross-spawn: 7.0.6
-  checksum: b9622bf1fc549ed344ee71d1329e9b3aa9d16432bcb8353107750f3f87f5a858ed8b6de7f22aede75c69338369e84459df706d1609481658212f1d31c2166a3b
+  checksum: 5d9ee503863c3e35f5a61b6cf417c6dc00142bdfc80667b542203fed9ccf1be29b91221560b985779a9b6978ed1305d082c657fd6661aa656bd66683dfdb6847
   languageName: node
   linkType: hard
 
-"@earendil-works/pi-telemetry@npm:1.3.0":
-  version: 1.3.0
-  resolution: "@earendil-works/pi-telemetry@npm:1.3.0"
-  checksum: 8087083d4b07917cdc5d03f74f76a010b430f3bd0af382113a5d9a98939da195094312c08450a2a75c6cacc9c03b450fdcc6007d3508d5580e66a83a125c5213
+"@earendil-works/pi-telemetry@npm:1.4.0":
+  version: 1.4.0
+  resolution: "@earendil-works/pi-telemetry@npm:1.4.0"
+  checksum: dc408b319e036ca6383bf47023d1941f8540343f90bd688413a3cef4174e3b821fdfac2fbae9fbbc530c6f524fc84bc0bde3f2a49721fce1c8c3c482f6cd97e0
   languageName: node
   linkType: hard
 
-"@earendil-works/pi-tui@npm:1.3.0, @earendil-works/pi-tui@npm:^1.3.0":
-  version: 1.3.0
-  resolution: "@earendil-works/pi-tui@npm:1.3.0"
+"@earendil-works/pi-tui@npm:1.4.0, @earendil-works/pi-tui@npm:^1.4.0":
+  version: 1.4.0
+  resolution: "@earendil-works/pi-tui@npm:1.4.0"
   dependencies:
     get-east-asian-width: 1.6.0
     marked: 18.0.11
-  checksum: 58821049c7470395cb9397951b29a466a3231e443a987b069144bea87a27de7aa8810fcfcbb787fcab6e62aec2b1447e34ccf662d3f5604347f19773af499124
+    marked-cjk-friendly: 0.1.2
+  checksum: e543e4b7ac9712da4698c06e74bd20753a3d56ff9614977383502bed320971fbb495d419d871835a9ac931c884ab7bef0a6f19bf2bad4c2f830d70a33fb5740d
   languageName: node
   linkType: hard
 
@@ -1497,15 +1498,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jupyter-ai/persona-manager@npm:0.3.0-a0":
-  version: 0.3.0-a0
-  resolution: "@jupyter-ai/persona-manager@npm:0.3.0-a0"
+"@jupyter-ai/persona-manager@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "@jupyter-ai/persona-manager@npm:0.3.0"
   dependencies:
     "@jupyter/chat": ^0.25.0-alpha.5
     "@jupyterlab/application": ^4.0.0
     "@jupyterlab/coreutils": ^6.0.0
     "@jupyterlab/services": ^7.0.0
-  checksum: dc1509b022a23a7ae044eab123b82fd640a08afd85ee2c06f233084884d9fc64a246003842ca55a59f7fc42fb8f87d561075130588980fe1438c150cf87b49ca
+    "@lumino/commands": ^2.0.0
+  checksum: c141c245a162ae3c654d866cbffd5445b5e15326db39e04772dcba15ca4b7ce17ea6ecd86660e86a8b14c414cf44d4539171fb57bbf5ed41d886f58f7b9b4d4d
   languageName: node
   linkType: hard
 
@@ -1527,12 +1529,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@jupyter-ai/pi-lite@workspace:packages/pi-lite"
   dependencies:
-    "@earendil-works/pi-ai": ^1.3.0
-    "@earendil-works/pi-coding-agent": ^1.3.0
-    "@earendil-works/pi-mcp": ^1.3.0
-    "@earendil-works/pi-tui": ^1.3.0
+    "@earendil-works/pi-ai": ^1.4.0
+    "@earendil-works/pi-coding-agent": ^1.4.0
+    "@earendil-works/pi-mcp": ^1.4.0
+    "@earendil-works/pi-tui": ^1.4.0
     "@jupyter-ai/agent-lite": ^0.21.0
-    "@jupyter-ai/persona-manager": 0.3.0-a0
+    "@jupyter-ai/persona-manager": ^0.3.0
     "@jupyter/builder": ^1.2.2
     "@jupyter/chat": ^0.25.0
     "@jupyterlab/application": ^4.5.8
@@ -2651,7 +2653,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lumino/commands@npm:^2.3.2, @lumino/commands@npm:^2.3.3, @lumino/commands@npm:^2.3.4":
+"@lumino/commands@npm:^2.0.0, @lumino/commands@npm:^2.3.2, @lumino/commands@npm:^2.3.3, @lumino/commands@npm:^2.3.4":
   version: 2.3.4
   resolution: "@lumino/commands@npm:2.3.4"
   dependencies:
@@ -6764,6 +6766,15 @@ __metadata:
     react:
       optional: true
   checksum: fd0c50f7ed11d036dd607b48e7d8283f86aea23028e4a0be0051e2717aa9da15967bd219a24b84480c5efb825d33b855f2f972de269720377a63bae810de5df9
+  languageName: node
+  linkType: hard
+
+"marked-cjk-friendly@npm:0.1.2":
+  version: 0.1.2
+  resolution: "marked-cjk-friendly@npm:0.1.2"
+  peerDependencies:
+    marked: ">=15.0.0"
+  checksum: 12ea586578391637124dc883f98465e6223e9fe5d0516988de944dc705352500ec75da5e1642f57011260ce2f08a42ff59b1c85688ec5d0cfe68156b0710288b
   languageName: node
   linkType: hard
 

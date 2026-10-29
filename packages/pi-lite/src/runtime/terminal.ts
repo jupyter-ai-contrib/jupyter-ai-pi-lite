@@ -23,7 +23,7 @@ import path from 'path';
 import type { DriveOperations } from './drive';
 import { terminalApproval } from './extension';
 import type { IRuntimeOptions, PiHost } from './host';
-import { DRIVE, isAgentPath, toContentsPath, volume } from './vfs';
+import { DRIVE, isAgentPath, isMissing, toContentsPath, volume } from './vfs';
 
 const { ICRNL, INLCR, IGNCR, IXON } = Termios.InputFlag;
 const { ECHO, ECHONL, ICANON, ISIG, IEXTEN } = Termios.LocalFlag;
@@ -615,7 +615,7 @@ async function loadDriveFile(file: string): Promise<void> {
   try {
     data = await drive.readFile(file);
   } catch (error) {
-    if ((error as { code?: string }).code === 'ENOENT') {
+    if (isMissing(error)) {
       return;
     }
     throw error;

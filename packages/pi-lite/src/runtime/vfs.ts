@@ -150,7 +150,7 @@ const writing = new Set<string>();
 const savedFiles = new Set<string>();
 let saveFailed = false;
 
-function isMissing(error: unknown): boolean {
+export function isMissing(error: unknown): boolean {
   const code = (error as { code?: string } | null)?.code;
   return code === 'ENOENT' || code === 'ENOTDIR';
 }
@@ -606,19 +606,16 @@ function upload(): void {
     const content = readChange(file);
     if (content) {
       // pi already reported the write: show a failure.
-      drive
-        .mkdir(path.posix.dirname(file))
-        .then(() => drive.writeFile(file, content.data))
-        .catch(error => {
-          console.warn(`pi: cannot save ${file}`, error);
-          Notification.error(
-            trans.__(
-              'Cannot save %1 to the drive: %2',
-              toContentsPath(file),
-              error instanceof Error ? error.message : String(error)
-            )
-          );
-        });
+      writeDriveFile(file, content.data).catch(error => {
+        console.warn(`pi: cannot save ${file}`, error);
+        Notification.error(
+          trans.__(
+            'Cannot save %1 to the drive: %2',
+            toContentsPath(file),
+            error instanceof Error ? error.message : String(error)
+          )
+        );
+      });
     }
   }
   uploads.clear();
@@ -732,8 +729,8 @@ export function restoreAgentDir(options: IRestoreOptions): Promise<void> {
  * writes of pi below the drive are saved to it.
  */
 export class DriveMirror {
-  constructor(contents: Contents.IManager) {
-    this._contents = contents;
+  constructor(operations: DriveOperations) {
+    this._drive = operations;
   }
 
   /**
@@ -789,10 +786,13 @@ export class DriveMirror {
   private async _collect(
     cwd: string,
     folders: string[]
-  ): Promise<Map<string, string>> {
-    const files = new Map<string, string>();
+  ): Promise<Map<string, Buffer>> {
+    const files = new Map<string, Buffer>();
     for (const directory of ancestors(cwd)) {
-      for (const entry of await this._list(directory.slice(DRIVE.length + 1))) {
+      const entries = await this._drive
+        .list(directory.slice(DRIVE.length + 1))
+        .catch(() => []);
+      for (const entry of entries) {
         if (entry.type === 'directory') {
           if (RESOURCE_DIRECTORIES.has(entry.name)) {
             await this._copyTree(entry.path, 0, files);
@@ -808,26 +808,15 @@ export class DriveMirror {
     return files;
   }
 
-  private async _list(contentsPath: string): Promise<Contents.IModel[]> {
-    try {
-      const model = await this._contents.get(contentsPath, { content: true });
-      return model.type === 'directory'
-        ? ((model.content ?? []) as Contents.IModel[])
-        : [];
-    } catch {
-      return [];
-    }
-  }
-
   private async _copyTree(
     contentsPath: string,
     depth: number,
-    files: Map<string, string>
+    files: Map<string, Buffer>
   ): Promise<void> {
     if (depth > 6 || files.size >= MAX_MIRRORED_FILES) {
       return;
     }
-    for (const entry of await this._list(contentsPath)) {
+    for (const entry of await this._drive.list(contentsPath).catch(() => [])) {
       if (entry.type === 'directory') {
         // The agent folder is already in memory, with its unsaved changes.
         if (
@@ -844,24 +833,20 @@ export class DriveMirror {
 
   private async _copyFile(
     contentsPath: string,
-    files: Map<string, string>
+    files: Map<string, Buffer>
   ): Promise<void> {
     if (files.size >= MAX_MIRRORED_FILES) {
       return;
     }
+    const file = drivePath(contentsPath);
     try {
-      const model = await this._contents.get(contentsPath, {
-        content: true,
-        type: 'file',
-        format: 'text'
-      });
-      files.set(`${DRIVE}/${contentsPath}`, model.content as string);
+      files.set(file, await this._drive.readFile(file));
     } catch {
       // pi does without a file that cannot be read.
     }
   }
 
-  private _contents: Contents.IManager;
+  private _drive: DriveOperations;
   private _mirrored = new Set<string>();
   private _queue = Promise.resolve();
 }
