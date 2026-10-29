@@ -964,7 +964,7 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
-    { name = "jupyter-ai-pi-lite", specifier = "==0.1.0" },
+    { name = "jupyter-ai-pi-lite", specifier = "==0.1.1" },
     { name = "jupyterlite-core", specifier = ">=0.8.6" },
     { name = "jupyterlite-terminal", specifier = ">=1.6.2,<2" },
 ]
