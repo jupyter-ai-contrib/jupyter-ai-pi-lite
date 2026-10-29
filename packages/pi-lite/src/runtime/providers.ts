@@ -3,16 +3,6 @@ import type { Api, Model, OAuthAuth, Provider } from '@earendil-works/pi-ai';
 import { getAppAttribution, requestApiKey } from '@jupyter-ai/agent-lite';
 
 /**
- * pi's terminal takes an error with this message as a cancelled login, not
- * as a failure.
- */
-class Cancelled extends Error {
-  constructor() {
-    super('Login cancelled');
-  }
-}
-
-/**
  * The OpenRouter sign-in of pi in a popup window, which OpenRouter sends
  * back to the page itself.
  */
@@ -29,7 +19,8 @@ const openRouterOAuth: OAuthAuth = {
       signal: interaction.signal
     });
     if (key === null) {
-      throw new Cancelled();
+      // pi's terminal takes this message as a cancelled login, not a failure.
+      throw new Error('Login cancelled');
     }
     // The credential of pi's own OpenRouter sign-in: a permanent API key.
     return {

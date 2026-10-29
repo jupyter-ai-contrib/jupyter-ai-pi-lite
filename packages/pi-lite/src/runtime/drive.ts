@@ -21,6 +21,7 @@ import {
   DRIVE,
   drivePath,
   isAgentPath,
+  isMissing,
   isPrivateFile,
   toContentsPath
 } from './vfs';
@@ -80,7 +81,7 @@ function fsError(code: keyof typeof FS_ERRORS, target: string): Error {
   });
 }
 
-export function errorCode(error: unknown): string | undefined {
+function errorCode(error: unknown): string | undefined {
   return (error as { code?: string } | null)?.code;
 }
 
@@ -314,8 +315,7 @@ export class DriveOperations
       await this.access(absolutePath);
       return true;
     } catch (error) {
-      const code = errorCode(error);
-      if (code === 'ENOENT' || code === 'ENOTDIR') {
+      if (isMissing(error)) {
         return false;
       }
       throw error;

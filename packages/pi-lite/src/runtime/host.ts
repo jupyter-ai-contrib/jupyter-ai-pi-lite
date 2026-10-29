@@ -147,10 +147,10 @@ export class PiHost {
   constructor(options: PiHost.IOptions) {
     const { contents } = options.app.serviceManager;
     this._options = options;
-    this._mirror = new DriveMirror(contents);
     this._operations = new DriveOperations(contents, contentsPath =>
       this._revert(contentsPath)
     );
+    this._mirror = new DriveMirror(this._operations);
     (fs as unknown as { drive: DriveOperations }).drive = this._operations;
     this._credentials = new PiCredentials(options.secrets);
     this._credentials.changed.connect(() => this._configChanged.emit());
