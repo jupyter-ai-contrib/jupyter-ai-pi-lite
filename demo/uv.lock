@@ -888,7 +888,7 @@ wheels = [
 
 [[package]]
 name = "jupyter-ai-persona-manager"
-version = "0.3.0a0"
+version = "0.3.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "importlib-metadata" },
@@ -897,9 +897,9 @@ dependencies = [
     { name = "jupyterlab-chat" },
     { name = "pydantic" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/16/10/2b4b0852664da0b8fc70ec62c3c2cc6f544f9aba599d177c3285200cbe3d/jupyter_ai_persona_manager-0.3.0a0.tar.gz", hash = "sha256:ce5aaa7b05cab99d4396cc231377bdbae191d3b5c42dd63ca39e1a0db07bf74f", size = 426338, upload-time = "2026-09-30T10:27:29.55Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/35/65/c2be6cd7b4d2436f0ae34051ede48a89c4158a64e92103cccd5ef9a8a051/jupyter_ai_persona_manager-0.3.0.tar.gz", hash = "sha256:2ba49cf6034a00b08716d6353d09fd245a22d8b1cef0da3963a563fbc875c056", size = 418842, upload-time = "2026-10-22T08:24:24.595Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/ee/62/06c415e47d2e8434f5e363a5e717a68eab5245eaa09957910cdb3ebf8d9a/jupyter_ai_persona_manager-0.3.0a0-py3-none-any.whl", hash = "sha256:49cd63a7dc977ab7fa839f06de9449c47af03ba95ab5c88324b7b4dc0711de9a", size = 166472, upload-time = "2026-09-30T10:27:27.802Z" },
+    { url = "https://files.pythonhosted.org/packages/ac/f2/72ae8e2dc48eb3d463437d9887e77c3b81ac05a779d3bbe4f4245e32b8ed/jupyter_ai_persona_manager-0.3.0-py3-none-any.whl", hash = "sha256:556c09cd5cd5cd1ec085da8f7550f03790adbbfcef10b1103df652986f74fd82", size = 168632, upload-time = "2026-10-22T08:24:22.669Z" },
 ]
 
 [[package]]
@@ -917,7 +917,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "jupyter-ai-agent-lite", specifier = ">=0.21.0,<0.22" },
-    { name = "jupyter-ai-persona-manager", specifier = ">=0.3.0a0,<0.4" },
+    { name = "jupyter-ai-persona-manager", specifier = ">=0.3.0,<0.4" },
     { name = "jupyter-chat-components", specifier = ">=0.7.0,<0.8" },
     { name = "jupyter-mcp-manager", specifier = ">=0.2.0,<0.3" },
     { name = "jupyter-secrets-manager", specifier = ">=0.5,<0.6" },

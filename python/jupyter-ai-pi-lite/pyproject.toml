@@ -29,7 +29,7 @@ classifiers = [
 ]
 dependencies = [
     "jupyter-ai-agent-lite >=0.21.0,<0.22",
-    "jupyter-ai-persona-manager >=0.3.0a0,<0.4",
+    "jupyter-ai-persona-manager >=0.3.0,<0.4",
     "jupyter-chat-components >=0.7.0,<0.8",
     "jupyter-mcp-manager >=0.2.0,<0.3",
     "jupyter-secrets-manager >=0.5,<0.6",

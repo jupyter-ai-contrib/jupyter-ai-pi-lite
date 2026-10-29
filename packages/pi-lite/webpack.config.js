@@ -68,6 +68,7 @@ const EXPORT_HTML_FILES = [
   'dist/core/export-html/template.css',
   'dist/core/export-html/template.js',
   'dist/core/export-html/vendor/marked.min.js',
+  'dist/core/export-html/vendor/marked-cjk-friendly.min.js',
   'dist/core/export-html/vendor/highlight.min.js'
 ];
 
