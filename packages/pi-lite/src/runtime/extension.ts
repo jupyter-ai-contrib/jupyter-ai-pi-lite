@@ -1,10 +1,9 @@
-import {
-  keyHint,
-  type ExtensionAPI,
-  type ExtensionContext,
-  type ExtensionFactory,
-  type McpServerConfig,
-  type ToolDefinition
+import type {
+  ExtensionAPI,
+  ExtensionContext,
+  ExtensionFactory,
+  McpServerConfig,
+  ToolDefinition
 } from '@earendil-works/pi-coding-agent';
 import { Text } from '@earendil-works/pi-tui';
 import {
@@ -189,7 +188,8 @@ function commandList(output: unknown): string | undefined {
 const renderResult: NonNullable<ToolDefinition['renderResult']> = (
   result,
   { expanded },
-  theme
+  theme,
+  { keyHint }
 ) => {
   let output = result.content
     .map(part => (part.type === 'text' ? part.text : ''))

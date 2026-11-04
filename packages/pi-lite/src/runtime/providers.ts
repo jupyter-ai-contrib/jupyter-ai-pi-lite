@@ -35,8 +35,9 @@ const openRouterOAuth: OAuthAuth = {
 };
 
 /**
- * The OpenAI-compatible settings of the Claude models of OpenRouter, as in
- * the `~anthropic/*-latest` models of the pi catalog.
+ * The OpenAI-compatible settings of the Claude models of OpenRouter, from
+ * the `~anthropic/*-latest` models of the pi 1.4 catalog: pi 1.5 moved them
+ * to the Anthropic API.
  */
 const OPENROUTER_CLAUDE_COMPAT = {
   supportsDeveloperRole: false,

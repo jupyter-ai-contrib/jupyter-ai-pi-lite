@@ -503,13 +503,13 @@ export class PiHost {
     settings: SettingsManager,
     context?: ProjectTrustContext
   ): Promise<boolean> {
-    if (!hasTrustRequiringProjectResources(cwd)) {
-      return true;
-    }
     const trustStore = new ProjectTrustStore(agentDir);
     const saved = trustStore.get(cwd);
     if (saved !== null) {
       return saved;
+    }
+    if (!hasTrustRequiringProjectResources(cwd)) {
+      return true;
     }
     const defaultProjectTrust = settings.getDefaultProjectTrust();
     if (defaultProjectTrust !== 'ask') {
