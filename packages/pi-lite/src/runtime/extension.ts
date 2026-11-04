@@ -6,7 +6,6 @@ import {
   type McpServerConfig,
   type ToolDefinition
 } from '@earendil-works/pi-coding-agent';
-import type { TSchema } from '@earendil-works/pi-ai';
 import { Text } from '@earendil-works/pi-tui';
 import {
   extractMimeBundles,
@@ -237,7 +236,7 @@ function bridgeTool(name: string, tool: ITool, host: PiHost): ToolDefinition {
     description,
     promptSnippet: description.split(/(?<=\.)\s/)[0],
     promptGuidelines: TOOL_GUIDELINES[name],
-    parameters: getToolInputSchema(tool) as unknown as TSchema,
+    parameters: getToolInputSchema(tool) as ToolDefinition['parameters'],
     renderResult,
     async execute(toolCallId, params, signal) {
       if (!tool.execute) {

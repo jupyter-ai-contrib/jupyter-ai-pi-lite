@@ -30,7 +30,7 @@ function findPackageDir(name) {
 const piPackageDir = findPackageDir('@earendil-works/pi-coding-agent');
 
 const BUILTINS = {
-  buffer: require.resolve('buffer/'),
+  buffer: shim('buffer.cjs'),
   child_process: shim('child-process.cjs'),
   crypto: shim('crypto.cjs'),
   events: require.resolve('events/'),
