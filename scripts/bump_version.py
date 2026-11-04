@@ -3,6 +3,7 @@
 
 import json
 import re
+import tomllib
 from pathlib import Path
 
 import click
@@ -129,13 +130,9 @@ def bump(skip_if_dirty, spec):
 
     # Collect local Python package names (normalize underscores to dashes per PEP 508)
     local_python_packages = set()
-    for pkg_dir in HERE.glob("python/*/"):
-        pyproject_file = pkg_dir / "pyproject.toml"
-        if pyproject_file.exists():
-            content = pyproject_file.read_text()
-            match = re.search(r'^name\s*=\s*["\']([^"\']+)["\']', content, re.MULTILINE)
-            if match:
-                local_python_packages.add(match.group(1).replace("_", "-"))
+    for pyproject_file in HERE.glob("python/*/pyproject.toml"):
+        name = tomllib.loads(pyproject_file.read_text())["project"]["name"]
+        local_python_packages.add(name.replace("_", "-"))
 
     # Update intra-monorepo dependency constraints in pyproject.toml files
     for pyproject_file in HERE.glob("python/*/pyproject.toml"):

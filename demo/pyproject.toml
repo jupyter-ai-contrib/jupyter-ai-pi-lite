@@ -3,7 +3,7 @@ name = "jupyter-ai-pi-lite-demo"
 version = "0.1.0"
 description = "JupyterLite AI Demo"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 dependencies = [
     "ipywidgets>=8.1.7",
     "jupyterlab>=4.5.0",
