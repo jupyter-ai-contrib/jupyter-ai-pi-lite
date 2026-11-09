@@ -6,6 +6,7 @@ import fs from 'fs';
 import type { Volume } from 'memfs';
 import path from 'path';
 
+import { errorMessage } from '../utils';
 import type { DriveOperations } from './drive';
 
 /**
@@ -544,7 +545,7 @@ async function writeDrive(files: string[]): Promise<void> {
           trans.__(
             'Cannot save the pi files to %1: %2',
             toContentsPath(AGENT_DIR),
-            error instanceof Error ? error.message : String(error)
+            errorMessage(error)
           )
         );
       }
@@ -612,7 +613,7 @@ function upload(): void {
           trans.__(
             'Cannot save %1 to the drive: %2',
             toContentsPath(file),
-            error instanceof Error ? error.message : String(error)
+            errorMessage(error)
           )
         );
       });
@@ -683,7 +684,7 @@ async function restore(options: IRestoreOptions): Promise<void> {
           trans.__(
             'Cannot load the pi settings and sessions from %1: %2. The changes in this tab are not saved.',
             toContentsPath(AGENT_DIR),
-            error instanceof Error ? error.message : String(error)
+            errorMessage(error)
           )
         );
       }

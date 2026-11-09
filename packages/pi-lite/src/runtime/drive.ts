@@ -17,6 +17,7 @@ import { minimatch } from 'minimatch';
 import { resolveToCwd } from 'pi-coding-agent-package/dist/core/tools/path-utils.js';
 import path from 'path';
 
+import { errorMessage } from '../utils';
 import {
   DRIVE,
   drivePath,
@@ -92,7 +93,7 @@ function errorCode(error: unknown): string | undefined {
 function contentsError(error: unknown, absolutePath: string): unknown {
   const status = (error as { response?: { status?: number } } | null)?.response
     ?.status;
-  const message = error instanceof Error ? error.message : String(error);
+  const message = errorMessage(error);
   if (
     status === 404 ||
     (status === undefined && /could not find|does not exist/i.test(message))

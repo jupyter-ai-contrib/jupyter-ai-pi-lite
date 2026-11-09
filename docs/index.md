@@ -252,7 +252,7 @@ the OpenRouter key list.
   `.pi/agent/keybindings.json` exists.
 - Two fast presses on Escape move the focus out of the terminal in JupyterLab
   4.6: type `/tree` in place of Escape Escape.
-- In chats that a Jupyter server synchronizes, jupyterlab-chat 0.25 drops the
+- In chats that a Jupyter server synchronizes, jupyterlab-chat 0.26 drops the
   changes to the rich content of a message and shows the messages of pi as
   messages of the user. Pi posts each tool call when it waits for an approval
   and when it ends, instead of updating it. Jupyternaut has the same issues.

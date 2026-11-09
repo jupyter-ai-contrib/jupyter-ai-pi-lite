@@ -1,5 +1,6 @@
 import type { PersonaSessionRegistry } from '@jupyter-ai/persona-manager';
 import {
+  InputToolbarRegistry,
   TooltippedIconButton,
   type IChatModel,
   type IChatPanel,
@@ -16,6 +17,7 @@ import piSvgstr from '../style/icons/pi.svg';
 import type { PiAgent } from './agent';
 import type { PiChatSession } from './runtime';
 import { PI_PERSONA_ID } from './tokens';
+import { errorMessage } from './utils';
 
 const PI_AVATAR = 'data:image/svg+xml,' + encodeURIComponent(piSvgstr);
 
@@ -219,7 +221,7 @@ class PiChat {
     } catch (error) {
       if (!this._disposed) {
         console.error('pi: cannot start the session', error);
-        const text = error instanceof Error ? error.message : String(error);
+        const text = errorMessage(error);
         void model.sendMessage({
           body: '',
           sender: PI_USER,
@@ -417,7 +419,9 @@ export async function attachPiChat(
   const toolbar = panel.widget.inputToolbarRegistry;
   if (toolbar && !toolbar.get(STOP_ITEM)) {
     toolbar.addItem(STOP_ITEM, {
-      element: () => <PiStopButton chat={chat} />,
+      createWidget: InputToolbarRegistry.createReactToolbarItem(() => (
+        <PiStopButton chat={chat} />
+      )),
       position: 7
     });
     toolbar.hide(STOP_ITEM);

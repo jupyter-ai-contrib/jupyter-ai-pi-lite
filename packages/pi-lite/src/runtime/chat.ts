@@ -18,6 +18,7 @@ import { BUILTIN_SLASH_COMMANDS } from 'pi-coding-agent-package/dist/core/slash-
 import type { IToolCallsEntry } from 'jupyter-chat-components';
 import path from 'path';
 
+import { errorMessage } from '../utils';
 import {
   summarize,
   type ApprovalDecision,
@@ -161,10 +162,6 @@ function isPlaceholder(model: Model<any>): boolean {
     model.id === 'unknown' &&
     model.api === 'unknown'
   );
-}
-
-function errorText(error: unknown): string {
-  return error instanceof Error ? error.message : String(error);
 }
 
 /**
@@ -552,7 +549,7 @@ export class PiChatSession {
       await session.prompt(prompt, { preflightResult: started });
     } catch (error) {
       if (!this._disposed && !this._stopRequested) {
-        this._error(errorText(error));
+        this._error(errorMessage(error));
       }
     } finally {
       if (
@@ -656,7 +653,7 @@ export class PiChatSession {
       this._notice('The conversation was compacted.');
     } catch (error) {
       const notice = COMPACT_NOTICES.find(([pattern]) =>
-        pattern.test(errorText(error))
+        pattern.test(errorMessage(error))
       );
       if (!notice) {
         throw error;
@@ -1043,7 +1040,7 @@ export class PiChatSession {
 
   /**
    * Whether an edited message keeps its rich content: a chat synchronized by
-   * a Jupyter server (jupyterlab-chat 0.25, private `_wsHandler`) drops it.
+   * a Jupyter server (jupyterlab-chat 0.26, private `_wsHandler`) drops it.
    * There, a tool call is posted when it waits for an approval and when it
    * ends, not updated.
    */

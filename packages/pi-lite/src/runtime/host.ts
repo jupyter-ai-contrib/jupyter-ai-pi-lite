@@ -45,6 +45,7 @@ import {
 } from 'pi-coding-agent-package/dist/core/settings-manager.js';
 
 import { AGENT_PLUGIN_ID } from '../tokens';
+import { errorMessage } from '../utils';
 import { PiCredentials, type ISecretsAccess } from './credentials';
 import {
   createFindTool,
@@ -470,10 +471,7 @@ export class PiHost {
         );
         // The dialog shows the store: only the setting can stop the retries.
         Notification.error(
-          trans.__(
-            'Cannot move the pi keys: %1',
-            error instanceof Error ? error.message : String(error)
-          ),
+          trans.__('Cannot move the pi keys: %1', errorMessage(error)),
           {
             actions: value
               ? [

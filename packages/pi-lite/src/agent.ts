@@ -3,6 +3,7 @@ import { Signal, type ISignal } from '@lumino/signaling';
 
 import type * as Runtime from './runtime';
 import type { IPiAgent } from './tokens';
+import { errorMessage } from './utils';
 
 /**
  * The pi agent of the page. The pi runtime loads on first use.
@@ -55,9 +56,7 @@ export class PiAgent implements IPiAgent {
       const { runtime, host } = await this.load();
       return await runtime.runTerminal(host, context, controller.signal);
     } catch (error) {
-      context.stderr.write(
-        `pi: ${error instanceof Error ? error.message : String(error)}\r\n`
-      );
+      context.stderr.write(`pi: ${errorMessage(error)}\r\n`);
       return 1;
     } finally {
       if (this._terminals.get(context.shellId) === controller) {

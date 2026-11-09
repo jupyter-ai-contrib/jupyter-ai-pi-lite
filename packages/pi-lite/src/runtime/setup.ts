@@ -16,6 +16,7 @@ import fs from 'fs';
 import path from 'path';
 import { stripJsonComments } from 'pi-coding-agent-package/dist/utils/json.js';
 
+import { errorMessage } from '../utils';
 import type { PiCredentials } from './credentials';
 import { AGENT_DIR } from './vfs';
 
@@ -360,7 +361,7 @@ class ProviderForm extends Widget implements Dialog.IBodyWidget<Setup> {
       } catch (error) {
         status.textContent = trans.__(
           'Cannot move the keys: %1',
-          error instanceof Error ? error.message : String(error)
+          errorMessage(error)
         );
       } finally {
         checkbox.checked = secretsManager.enabled;
@@ -399,7 +400,7 @@ class ProviderForm extends Widget implements Dialog.IBodyWidget<Setup> {
     } catch (error) {
       this._status.textContent = trans.__(
         'Cannot sign in to OpenRouter: %1',
-        error instanceof Error ? error.message : String(error)
+        errorMessage(error)
       );
     } finally {
       this._signIn.disabled = false;
@@ -521,11 +522,7 @@ function readConfig(
     return config;
   } catch (error) {
     Notification.error(
-      trans.__(
-        'Cannot read %1: %2',
-        file,
-        error instanceof Error ? error.message : String(error)
-      )
+      trans.__('Cannot read %1: %2', file, errorMessage(error))
     );
   }
 }
@@ -654,7 +651,7 @@ export async function addProvider(
         await runtime.logout(setup.providerId);
       }
     } catch (error) {
-      const message = error instanceof Error ? error.message : String(error);
+      const message = errorMessage(error);
       if (!(error instanceof CredentialSynchronizationError)) {
         Notification.error(
           login
@@ -701,11 +698,7 @@ export async function addProvider(
     }
   } catch (error) {
     Notification.error(
-      trans.__(
-        'Cannot save the %1 key: %2',
-        setup.name,
-        error instanceof Error ? error.message : String(error)
-      )
+      trans.__('Cannot save the %1 key: %2', setup.name, errorMessage(error))
     );
     return false;
   }

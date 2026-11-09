@@ -1512,16 +1512,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jupyter-ai/persona-manager@npm:^0.3.0":
-  version: 0.3.0
-  resolution: "@jupyter-ai/persona-manager@npm:0.3.0"
+"@jupyter-ai/persona-manager@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "@jupyter-ai/persona-manager@npm:0.4.0"
   dependencies:
-    "@jupyter/chat": ^0.25.0-alpha.5
+    "@jupyter/chat": ^0.26.0
     "@jupyterlab/application": ^4.0.0
     "@jupyterlab/coreutils": ^6.0.0
     "@jupyterlab/services": ^7.0.0
+    "@jupyterlab/ui-components": ^4.0.0
     "@lumino/commands": ^2.0.0
-  checksum: c141c245a162ae3c654d866cbffd5445b5e15326db39e04772dcba15ca4b7ce17ea6ecd86660e86a8b14c414cf44d4539171fb57bbf5ed41d886f58f7b9b4d4d
+  checksum: cdcc8bba2dccb79e1eb4294ee68741acca166de1f85b4324fe7afae81ff97b8af63af8569d144c9b8e971833ecb5f3a669299ad92cfffe364f1429113a21f412
   languageName: node
   linkType: hard
 
@@ -1548,9 +1549,9 @@ __metadata:
     "@earendil-works/pi-mcp": ^1.5.0
     "@earendil-works/pi-tui": ^1.5.0
     "@jupyter-ai/agent-lite": ^0.21.0
-    "@jupyter-ai/persona-manager": ^0.3.0
+    "@jupyter-ai/persona-manager": ^0.4.0
     "@jupyter/builder": ^1.2.2
-    "@jupyter/chat": ^0.25.0
+    "@jupyter/chat": ^0.26.0
     "@jupyterlab/application": ^4.5.8
     "@jupyterlab/apputils": ^4.6.8
     "@jupyterlab/coreutils": ^6.5.8
@@ -1609,9 +1610,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jupyter/chat@npm:^0.25.0, @jupyter/chat@npm:^0.25.0-alpha.5":
-  version: 0.25.2
-  resolution: "@jupyter/chat@npm:0.25.2"
+"@jupyter/chat@npm:^0.26.0":
+  version: 0.26.0
+  resolution: "@jupyter/chat@npm:0.26.0"
   dependencies:
     "@emotion/react": ^11.10.5
     "@emotion/styled": ^11.10.5
@@ -1634,6 +1635,7 @@ __metadata:
     "@lumino/commands": ^2.3.3
     "@lumino/coreutils": ^2.2.2
     "@lumino/disposable": ^2.1.5
+    "@lumino/messaging": ^2.0.5
     "@lumino/polling": ^2.1.5
     "@lumino/signaling": ^2.1.5
     "@lumino/widgets": ^2.8.0
@@ -1642,7 +1644,7 @@ __metadata:
     clsx: ^2.1.0
     react: ^18.2.0
     react-dom: ^18.2.0
-  checksum: 79f9c66b992cdfc11780612cd4a80b93724e373e87e668b0b79204c917ff6b3b45547586e20c24ded177e86046edd4c081cba935bddd21a52c3d54eba318b8b7
+  checksum: 5d72e846f8f4c8e380d97e775038c2c8d9c4683195c78b19a512a78a9e6760371740450859ef6846b76861cbdf5cdc26c13fa341b351ecc0d80d6344723ae909
   languageName: node
   linkType: hard
 
