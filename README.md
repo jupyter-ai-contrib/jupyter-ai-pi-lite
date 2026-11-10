@@ -4,6 +4,8 @@
 
 The [pi coding agent](https://pi.dev) as an in-browser persona of [Jupyter AI](https://github.com/jupyterlab/jupyter-ai), for JupyterLab, Notebook 7 and JupyterLite.
 
+![Pi in a chat and in the terminal of JupyterLite](docs/screenshot.png)
+
 Pi is available in two places, with the same tools, settings, credentials and sessions:
 
 - in the chats, as a persona (`jupyter-ai-pi-lite`);
