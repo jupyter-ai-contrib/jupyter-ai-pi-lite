@@ -44,7 +44,7 @@ import {
   isToolModifier
 } from 'pi-coding-agent-package/dist/core/settings-manager.js';
 
-import { AGENT_PLUGIN_ID } from '../tokens';
+import { AGENT_PLUGIN_ID, IPiProviderRegistry } from '../tokens';
 import { errorMessage } from '../utils';
 import { PiCredentials, type ISecretsAccess } from './credentials';
 import {
@@ -399,6 +399,9 @@ export class PiHost {
             .filter(folder => fs.existsSync(folder))
         }
       });
+      // The extensions give their providers when they activate, before the
+      // page is restored.
+      await this._options.app.restored;
       await adaptProviders(services.modelRuntime);
       const scope = await modelScope(services, sessionManager);
       const { model, provider, thinking } = options.args ?? {};
@@ -608,6 +611,7 @@ export class PiHost {
 export namespace PiHost {
   export interface IOptions {
     app: JupyterFrontEnd;
+    providerRegistry: IPiProviderRegistry,
     toolRegistry?: IToolRegistry;
     agentSettings?: IAgentSettings;
     mcpManager?: IMcpManager;
