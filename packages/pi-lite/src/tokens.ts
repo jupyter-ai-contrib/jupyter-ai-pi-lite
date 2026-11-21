@@ -67,6 +67,15 @@ export interface IPiProviderModel {
    * Default: text only.
    */
   input?: ('text' | 'image')[];
+  /**
+   * The prices per million tokens. Default: 0.
+   */
+  cost?: {
+    input?: number;
+    output?: number;
+    cacheRead?: number;
+    cacheWrite?: number;
+  };
 }
 
 /**
@@ -89,8 +98,11 @@ export interface IPiClonedProvider {
   from: string;
   /**
    * The URL of the requests, in place of the one of the provider of pi.
+   * Default: the one of pi. pi turns off its settings for some providers
+   * (OpenRouter...) when the URL changes: to keep them, leave it out and send
+   * the requests elsewhere in `fetch`.
    */
-  baseUrl: string;
+  baseUrl?: string;
   /**
    * Headers added to the requests.
    */
