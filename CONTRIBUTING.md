@@ -33,6 +33,32 @@ By default, the `jlpm build` command generates the source maps for this extensio
 jupyter lab build --minimize=False
 ```
 
+## Developing with JupyterLite
+
+The `demo/` folder contains a JupyterLite site, built with [uv](https://docs.astral.sh/uv/). The `pi` command of the terminal is only available in JupyterLite.
+
+- Build the extensions and the site once.
+
+```bash
+# Build the extensions
+jlpm build
+# Install the demo environment and build the site in demo/dist
+cd demo
+uv sync
+mkdir -p contents
+uv run jupyter lite build
+# Serve the site
+uv run jupyter lite serve
+```
+
+- While keeping the server running, change the extension source, then rebuild the extensions in another terminal:
+
+```bash
+jlpm build && jlpm update:demo
+```
+
+Rebuild the whole site with `uv sync` and `uv run jupyter lite build` after changing the demo dependencies (`demo/pyproject.toml`), its configuration (`demo/jupyter-lite.json`, `demo/overrides.json`) or its contents.
+
 ## Contributing to documentation
 
 The documentation is built using [MyST](https://mystmd.org/) and [Jupyter Book](https://jupyterbook.org/). The source files are located in the `docs/` folder.

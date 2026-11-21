@@ -19,7 +19,8 @@ import { PiAgent } from './agent';
 // The chats that are already open get the persona at activation.
 // eslint-disable-next-line jupyter/prefer-lazy-imports
 import { attachPiChat } from './persona';
-import { AGENT_PLUGIN_ID, IPiAgent } from './tokens';
+import { AGENT_PLUGIN_ID, IPiAgent, IPiProviderRegistry } from './tokens';
+import { ProviderRegistry } from './registry';
 
 namespace CommandIds {
   export const addProvider = '@jupyter-ai/pi-lite:add-provider';
@@ -57,6 +58,7 @@ const agentPlugin = signed<IPiAgent>(token => ({
   description: 'The pi coding agent',
   autoStart: true,
   provides: IPiAgent,
+  requires: [IPiProviderRegistry],
   optional: [
     IToolRegistry,
     IAgentSettings,
@@ -69,6 +71,7 @@ const agentPlugin = signed<IPiAgent>(token => ({
   ],
   activate: (
     app: JupyterFrontEnd,
+    providerRegistry: IPiProviderRegistry,
     toolRegistry: IToolRegistry | null,
     agentSettings: IAgentSettings | null,
     mcpManager: IMcpManager | null,
@@ -81,6 +84,7 @@ const agentPlugin = signed<IPiAgent>(token => ({
     const trans = (translator ?? nullTranslator).load('jupyter_ai_pi_lite');
     const agent = new PiAgent({
       app,
+      providerRegistry,
       toolRegistry: toolRegistry ?? undefined,
       agentSettings: agentSettings ?? undefined,
       mcpManager: mcpManager ?? undefined,
@@ -161,6 +165,24 @@ const personaPlugin: JupyterFrontEndPlugin<void> = {
   }
 };
 
-export default [agentPlugin, personaPlugin];
+const providerRegistryPlugin: JupyterFrontEndPlugin<IPiProviderRegistry> = {
+  id: '@jupyter-ai/pi-lite:providerRegistry',
+  description: 'The registry allowing extensions to add or modify providers',
+  autoStart: true,
+  provides: IPiProviderRegistry,
+  activate: (app: JupyterFrontEnd): IPiProviderRegistry => {
+    const registry = new ProviderRegistry();
 
-export { IPiAgent } from './tokens';
+    return registry;
+  }
+};
+
+export default [agentPlugin, personaPlugin, providerRegistryPlugin];
+
+export { IPiAgent, IPiProviderRegistry } from './tokens';
+export type {
+  IPiClonedProvider,
+  IPiCustomProvider,
+  IPiProviderAuth,
+  IPiProviderModel
+} from './tokens';

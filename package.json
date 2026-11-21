@@ -24,6 +24,7 @@
     "prettier:check": "prettier --list-different \"**/*{.ts,.tsx,.js,.jsx,.mjs,.css,.json,.md,.yml}\"",
     "stylelint": "jlpm stylelint:check --fix",
     "stylelint:check": "stylelint --cache \"**/style/**/*.css\"",
+    "update:demo": "python scripts/update_demo.py",
     "watch": "jlpm workspace @jupyter-ai/pi-lite run watch"
   },
   "devDependencies": {
