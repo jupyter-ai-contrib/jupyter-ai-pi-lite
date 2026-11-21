@@ -251,9 +251,9 @@ function generateClonedProvider(
 
   const headers = { ...base.headers, ...registered.headers };
   const auth = { apiKey: registeredAuth(registered, name) };
-  const newGetModels = () =>
+  const getModels = () =>
     base.getModels().map(model => ({ ...model, provider: id, baseUrl }));
-  const newGetAllModels = base.getAllModels
+  const getAllModels = base.getAllModels
     ? () =>
         base.getAllModels!().map(model => ({ ...model, provider: id, baseUrl }))
     : undefined;
@@ -284,8 +284,8 @@ function generateClonedProvider(
     baseUrl,
     headers,
     auth,
-    getModels: newGetModels,
-    getAllModels: newGetAllModels,
+    getModels,
+    getAllModels,
     stream,
     streamSimple
   };
@@ -361,6 +361,12 @@ export function registerProviders(
     if (runtime.getProvider(registered.id)) {
       console.warn(
         `pi: cannot add the provider ${registered.id}: pi already has it`
+      );
+      continue;
+    }
+    if (registered.name && base.name === registered.name) {
+      console.warn(
+        `pi: a provider with ${base.name} name already exists and cannot be cloned.`
       );
       continue;
     }
