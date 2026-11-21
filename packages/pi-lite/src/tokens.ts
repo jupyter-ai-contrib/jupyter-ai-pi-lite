@@ -70,21 +70,25 @@ export interface IPiProviderModel {
 }
 
 /**
- * A provider of pi (anthropic, openai, mistral...) whose requests go to
- * another URL. Its models and its API stay.
+ * A new provider with the models and the API of a provider of pi
+ * (anthropic, openai, mistral...), whose requests go to another URL. The
+ * provider of pi stays as it is.
  */
-export interface IPiOverriddenProvider {
+export interface IPiClonedProvider {
   /**
-   * A provider of pi with another setup. The id must be a provider of pi: other
-   * ids are rejected.
-   */
-  kind: 'override';
-  /**
-   * The id of a provider of pi.
+   * The id of the new provider. The ids of pi are rejected.
    */
   id: string;
   /**
-   * The URL of the requests, in place of the one of pi.
+   * The display name. Default: the id.
+   */
+  name?: string;
+  /**
+   * The id of the provider of pi to clone. Unknown ids are rejected.
+   */
+  from: string;
+  /**
+   * The URL of the requests, in place of the one of the provider of pi.
    */
   baseUrl: string;
   /**
@@ -98,7 +102,8 @@ export interface IPiOverriddenProvider {
   /**
    * Resolves with the auth of the requests, or undefined when the provider is
    * not set up: pi then hides its models. Called for each request. Without
-   * it, the provider keeps the key that the user saved in pi.
+   * it, the provider has no key. The keys that the user saved in pi are never
+   * used.
    */
   resolveAuth?: () => Promise<IPiProviderAuth | undefined>;
 }
@@ -108,12 +113,7 @@ export interface IPiOverriddenProvider {
  */
 export interface IPiCustomProvider {
   /**
-   * A new provider. The id must not be a provider of pi: the ids of pi are
-   * rejected.
-   */
-  kind: 'custom';
-  /**
-   * A provider id that pi does not have.
+   * The id of the new provider. The ids of pi are rejected.
    */
   id: string;
   /**
@@ -121,7 +121,8 @@ export interface IPiCustomProvider {
    */
   name?: string;
   /**
-   * The API of the requests: OpenAI Chat Completions.
+   * The API of the requests: the only one that pi supports for a new
+   * provider, OpenAI Chat Completions.
    */
   api: 'openai-completions';
   /**
@@ -148,22 +149,34 @@ export interface IPiCustomProvider {
   models: IPiProviderModel[];
 }
 
-export type IPiProvider = IPiOverriddenProvider | IPiCustomProvider;
-
 /**
  * The model providers that other extensions give to pi.
  */
 export interface IPiProviderRegistry {
   /**
-   * The registered providers.
+   * The providers added with newProvider.
    */
-  readonly providers: readonly IPiProvider[];
+  readonly newProviders: readonly IPiCustomProvider[];
 
   /**
-   * Add a provider. A provider with the id of a registered one is ignored.
-   * pi gives it to the sessions that start after.
+   * The providers added with cloneProvider.
    */
-  register(provider: IPiProvider): void;
+  readonly clonedProviders: readonly IPiClonedProvider[];
+
+  /**
+   * Add a provider with pi's OpenAI Chat Completions API. A provider with
+   * the id of a registered one or of a provider of pi is ignored. pi gives it
+   * to the sessions that start after.
+   */
+  newProvider(provider: IPiCustomProvider): void;
+
+  /**
+   * Add a provider with the models and the API of a provider of pi. A
+   * provider with the id of a registered one or of a provider of pi, or
+   * whose `from` is not a provider of pi, is ignored. pi gives it to the
+   * sessions that start after.
+   */
+  cloneProvider(provider: IPiClonedProvider): void;
 }
 
 export const IPiProviderRegistry = new Token<IPiProviderRegistry>(

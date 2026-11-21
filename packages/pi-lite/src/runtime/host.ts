@@ -44,7 +44,7 @@ import {
   isToolModifier
 } from 'pi-coding-agent-package/dist/core/settings-manager.js';
 
-import { AGENT_PLUGIN_ID, IPiProviderRegistry } from '../tokens';
+import { AGENT_PLUGIN_ID, type IPiProviderRegistry } from '../tokens';
 import { errorMessage } from '../utils';
 import { PiCredentials, type ISecretsAccess } from './credentials';
 import {
@@ -58,7 +58,7 @@ import {
   jupyterExtension,
   type ApprovalHandler
 } from './extension';
-import { adaptProviders } from './providers';
+import { adaptProviders, registerProviders } from './providers';
 import { dialogTrustContext } from './dialogs';
 import { addProvider } from './setup';
 import { createCockleBashTool, hasCockleShell, ShellRunner } from './shell';
@@ -403,6 +403,7 @@ export class PiHost {
       // page is restored.
       await this._options.app.restored;
       await adaptProviders(services.modelRuntime);
+      registerProviders(services.modelRuntime, this._options.providerRegistry);
       const scope = await modelScope(services, sessionManager);
       const { model, provider, thinking } = options.args ?? {};
       const cli = model
@@ -611,7 +612,7 @@ export class PiHost {
 export namespace PiHost {
   export interface IOptions {
     app: JupyterFrontEnd;
-    providerRegistry: IPiProviderRegistry,
+    providerRegistry: IPiProviderRegistry;
     toolRegistry?: IToolRegistry;
     agentSettings?: IAgentSettings;
     mcpManager?: IMcpManager;
