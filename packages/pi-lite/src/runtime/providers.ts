@@ -246,16 +246,24 @@ function generateClonedProvider(
   base: Provider<Api>,
   registered: IPiClonedProvider
 ): Provider<Api> {
-  const { id, baseUrl, fetch: customFetch } = registered;
+  const { id, fetch: customFetch, baseUrl } = registered;
   const name = registered.name ?? id;
 
   const headers = { ...base.headers, ...registered.headers };
   const auth = { apiKey: registeredAuth(registered, name) };
   const getModels = () =>
-    base.getModels().map(model => ({ ...model, provider: id, baseUrl }));
+    base.getModels().map(model => ({
+      ...model,
+      provider: id,
+      baseUrl: baseUrl ?? model.baseUrl
+    }));
   const getAllModels = base.getAllModels
     ? () =>
-        base.getAllModels!().map(model => ({ ...model, provider: id, baseUrl }))
+        base.getAllModels!().map(model => ({
+          ...model,
+          provider: id,
+          baseUrl: baseUrl ?? model.baseUrl
+        }))
     : undefined;
 
   let stream: typeof base.stream = (model, context, options) =>
@@ -281,7 +289,7 @@ function generateClonedProvider(
     ...base,
     id,
     name,
-    baseUrl,
+    baseUrl: baseUrl ?? base.baseUrl,
     headers,
     auth,
     getModels,
@@ -323,7 +331,12 @@ function generateCustomProvider(registered: IPiCustomProvider): Provider<Api> {
           baseUrl,
           reasoning: model.reasoning ?? false,
           input: model.input ?? ['text'],
-          cost: { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 },
+          cost: {
+            input: model.cost?.input ?? 0,
+            output: model.cost?.output ?? 0,
+            cacheRead: model.cost?.cacheRead ?? 0,
+            cacheWrite: model.cost?.cacheWrite ?? 0
+          },
           contextWindow: model.contextWindow ?? 128000,
           maxTokens: model.maxTokens ?? 16384
         }) as Model<Api>
