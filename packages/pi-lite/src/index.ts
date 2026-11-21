@@ -179,4 +179,10 @@ const providerRegistryPlugin: JupyterFrontEndPlugin<IPiProviderRegistry> = {
 
 export default [agentPlugin, personaPlugin, providerRegistryPlugin];
 
-export { IPiAgent } from './tokens';
+export { IPiAgent, IPiProviderRegistry } from './tokens';
+export type {
+  IPiClonedProvider,
+  IPiCustomProvider,
+  IPiProviderAuth,
+  IPiProviderModel
+} from './tokens';

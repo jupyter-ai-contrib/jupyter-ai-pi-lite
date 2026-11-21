@@ -1,6 +1,21 @@
 import { ModelRuntime } from '@earendil-works/pi-coding-agent';
-import type { Api, Model, OAuthAuth, Provider } from '@earendil-works/pi-ai';
+import {
+  createProvider,
+  type Api,
+  type ApiKeyAuth,
+  type Model,
+  type OAuthAuth,
+  type Provider,
+  type ProviderStreams
+} from '@earendil-works/pi-ai';
+import { openAICompletionsApi } from '@earendil-works/pi-ai/api/openai-completions.lazy';
 import { getAppAttribution, requestApiKey } from '@jupyter-ai/agent-lite';
+
+import type {
+  IPiClonedProvider,
+  IPiCustomProvider,
+  IPiProviderRegistry
+} from '../tokens';
 
 /**
  * The OpenRouter sign-in of pi in a popup window, which OpenRouter sends
@@ -197,5 +212,158 @@ export async function adaptProviders(runtime: ModelRuntime): Promise<void> {
         auth: { ...provider.auth, oauth: undefined }
       });
     }
+  }
+}
+
+/**
+ * The api-key auth of pi for a provider of another extension.
+ */
+function registeredAuth(
+  provider: IPiClonedProvider | IPiCustomProvider,
+  name: string
+): ApiKeyAuth {
+  return {
+    name,
+    resolve: async () => {
+      const auth = provider.resolveAuth ? await provider.resolveAuth() : {};
+      if (!auth) {
+        return undefined;
+      }
+      return {
+        auth: { apiKey: auth.apiKey ?? 'none', headers: auth.headers },
+        source: name
+      };
+    }
+  };
+}
+
+/**
+ * A new provider with the models and the API of a provider of pi, whose
+ * requests go to another URL, with the fetch, headers and auth of another
+ * extension.
+ */
+function generateClonedProvider(
+  base: Provider<Api>,
+  registered: IPiClonedProvider
+): Provider<Api> {
+  const { id, baseUrl, fetch: customFetch } = registered;
+  const name = registered.name ?? id;
+
+  const headers = { ...base.headers, ...registered.headers };
+  const auth = { apiKey: registeredAuth(registered, name) };
+  const newGetModels = () =>
+    base.getModels().map(model => ({ ...model, provider: id, baseUrl }));
+  const newGetAllModels = base.getAllModels
+    ? () =>
+        base.getAllModels!().map(model => ({ ...model, provider: id, baseUrl }))
+    : undefined;
+
+  let stream: typeof base.stream = (model, context, options) =>
+    base.stream(model, context, options);
+  if (customFetch) {
+    stream = (model, context, options) =>
+      base.stream(model, context, {
+        ...options,
+        fetch: customFetch
+      } as any);
+  }
+  let streamSimple: typeof base.streamSimple = (model, context, options) =>
+    base.streamSimple(model, context, options);
+  if (customFetch) {
+    streamSimple = (model, context, options) =>
+      base.streamSimple(model, context, {
+        ...options,
+        fetch: customFetch
+      });
+  }
+
+  return {
+    ...base,
+    id,
+    name,
+    baseUrl,
+    headers,
+    auth,
+    getModels: newGetModels,
+    getAllModels: newGetAllModels,
+    stream,
+    streamSimple
+  };
+}
+
+/**
+ * A new provider of another extension, with pi's OpenAI Chat Completions API.
+ */
+function generateCustomProvider(registered: IPiCustomProvider): Provider<Api> {
+  const { id, baseUrl, fetch: customFetch } = registered;
+  const name = registered.name ?? id;
+  const api = openAICompletionsApi();
+  const streams: ProviderStreams = customFetch
+    ? {
+        stream: (model, context, options) =>
+          api.stream(model, context, { ...options, fetch: customFetch }),
+        streamSimple: (model, context, options) =>
+          api.streamSimple(model, context, { ...options, fetch: customFetch })
+      }
+    : api;
+  return createProvider({
+    id,
+    name,
+    baseUrl,
+    headers: registered.headers,
+    auth: { apiKey: registeredAuth(registered, name) },
+    models: registered.models.map(
+      model =>
+        ({
+          type: 'chat',
+          id: model.id,
+          name: model.name ?? model.id,
+          api: registered.api,
+          provider: id,
+          baseUrl,
+          reasoning: model.reasoning ?? false,
+          input: model.input ?? ['text'],
+          cost: { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 },
+          contextWindow: model.contextWindow ?? 128000,
+          maxTokens: model.maxTokens ?? 16384
+        }) as Model<Api>
+    ),
+    api: streams
+  });
+}
+
+/**
+ * Give pi the providers of the other extensions. They need a new id, and a
+ * clone a provider of pi to clone: the others are rejected.
+ */
+export function registerProviders(
+  runtime: ModelRuntime,
+  registry: IPiProviderRegistry
+): void {
+  for (const registered of registry.newProviders) {
+    const base = runtime.getProvider(registered.id);
+    if (base) {
+      console.warn(
+        `pi: cannot add the provider ${registered.id}: pi already has it`
+      );
+      continue;
+    }
+    runtime.registerNativeProvider(generateCustomProvider(registered));
+  }
+  for (const registered of registry.clonedProviders) {
+    const base = runtime.getProvider(registered.from);
+    if (!base) {
+      console.warn(
+        `pi: cannot clone the unknown provider ${registered.from} as ${registered.id}`
+      );
+      continue;
+    }
+    if (runtime.getProvider(registered.id)) {
+      console.warn(
+        `pi: cannot add the provider ${registered.id}: pi already has it`
+      );
+      continue;
+    }
+    runtime.registerNativeProvider(generateClonedProvider(base, registered));
   }
 }
