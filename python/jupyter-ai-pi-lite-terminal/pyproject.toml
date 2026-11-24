@@ -30,7 +30,7 @@ classifiers = [
 dependencies = [
     "jupyterlite-core >=0.8.6",
     "jupyterlite-terminal >=1.8.0,<2",
-    "jupyter-ai-pi-lite ==0.2.0",
+    "jupyter-ai-pi-lite ==0.2.1",
 ]
 dynamic = ["version"]
 

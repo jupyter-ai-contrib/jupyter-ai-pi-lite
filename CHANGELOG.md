@@ -2,6 +2,25 @@
 
 <!-- <START NEW CHANGELOG ENTRY> -->
 
+## 0.2.1
+
+([Full Changelog](https://github.com/jupyter-ai-contrib/jupyter-ai-pi-lite/compare/@jupyter-ai/pi-lite-terminal@0.2.0...02f345c28554e840784a5e070f91c45af951749f))
+
+### Maintenance and upkeep improvements
+
+- Allow jupyter-ai-agent-lite 0.22 [#19](https://github.com/jupyter-ai-contrib/jupyter-ai-pi-lite/pull/19) ([@jtpio](https://github.com/jtpio))
+
+### Contributors to this release
+
+The following people contributed discussions, new ideas, code and documentation contributions, and review.
+See [our definition of contributors](https://github-activity.readthedocs.io/en/latest/use/#how-does-this-tool-define-contributions-in-the-reports).
+
+([GitHub contributors page for this release](https://github.com/jupyter-ai-contrib/jupyter-ai-pi-lite/graphs/contributors?from=2026-11-24&to=2026-11-24&type=c))
+
+@jtpio ([activity](https://github.com/search?q=repo%3Ajupyter-ai-contrib%2Fjupyter-ai-pi-lite+involves%3Ajtpio+updated%3A2026-11-24..2026-11-24&type=Issues))
+
+<!-- <END NEW CHANGELOG ENTRY> -->
+
 ## 0.2.0
 
 ([Full Changelog](https://github.com/jupyter-ai-contrib/jupyter-ai-pi-lite/compare/@jupyter-ai/pi-lite-terminal@0.1.2...ef9c3835434be774c7e9ed66f7797e0e0243aaf2))
@@ -33,8 +52,6 @@ See [our definition of contributors](https://github-activity.readthedocs.io/en/l
 ([GitHub contributors page for this release](https://github.com/jupyter-ai-contrib/jupyter-ai-pi-lite/graphs/contributors?from=2026-11-04&to=2026-11-24&type=c))
 
 @brichet ([activity](https://github.com/search?q=repo%3Ajupyter-ai-contrib%2Fjupyter-ai-pi-lite+involves%3Abrichet+updated%3A2026-11-04..2026-11-24&type=Issues)) | @jtpio ([activity](https://github.com/search?q=repo%3Ajupyter-ai-contrib%2Fjupyter-ai-pi-lite+involves%3Ajtpio+updated%3A2026-11-04..2026-11-24&type=Issues)) | @trungleduc ([activity](https://github.com/search?q=repo%3Ajupyter-ai-contrib%2Fjupyter-ai-pi-lite+involves%3Atrungleduc+updated%3A2026-11-04..2026-11-24&type=Issues))
-
-<!-- <END NEW CHANGELOG ENTRY> -->
 
 ## 0.1.2
 
