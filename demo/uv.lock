@@ -752,14 +752,14 @@ wheels = [
 
 [[package]]
 name = "jupyter-ai-agent-lite"
-version = "0.21.0"
+version = "0.22.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "jupyterlab-ai-commands" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/b9/90/1c14299fe84fc16a94dcccf2f52329cd5d322958b81bc904b2a793337ab3/jupyter_ai_agent_lite-0.21.0.tar.gz", hash = "sha256:bd697d919ecb1ff90bd2b1fdb46c70f312ed0f19308e2dac92c046473564aeef", size = 108861, upload-time = "2026-10-20T14:18:07.233Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/c6/4a/4a2cc2365cb70404cdb80d160938568fd35291a53dc4a9be4e534efdd13d/jupyter_ai_agent_lite-0.22.0.tar.gz", hash = "sha256:90ff703ce05a0a7aab93b0f26f0a4221f1d3009298dd41909fb2285a6d3bf67f", size = 139034, upload-time = "2026-11-23T08:51:55.49Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/64/d5/fd0ad4876e692527cc35538205149679d71571a1b90142fcd635018d1688/jupyter_ai_agent_lite-0.21.0-py3-none-any.whl", hash = "sha256:6f62f8988c9e755f27b7cf95ad492291f0ccbc7ad9e5869276f3c635282d57a9", size = 224403, upload-time = "2026-10-20T14:18:05.178Z" },
+    { url = "https://files.pythonhosted.org/packages/ed/f9/aa634b6196130a09519e37d534dcb49c3ab34ce7d99a4c885e3ec89ae6c1/jupyter_ai_agent_lite-0.22.0-py3-none-any.whl", hash = "sha256:f73932fb4e9a7521babfc1ba50de8ba93316e45f31aa77e0fab8ff173fdedbc8", size = 285069, upload-time = "2026-11-23T08:51:53.149Z" },
 ]
 
 [[package]]
@@ -792,7 +792,7 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
-    { name = "jupyter-ai-agent-lite", specifier = ">=0.21.0,<0.22" },
+    { name = "jupyter-ai-agent-lite", specifier = ">=0.21.0,<0.23" },
     { name = "jupyter-ai-persona-manager", specifier = ">=0.4.0,<0.5" },
     { name = "jupyter-chat-components", specifier = ">=0.7.0,<0.8" },
     { name = "jupyter-mcp-manager", specifier = ">=0.2.0,<0.3" },

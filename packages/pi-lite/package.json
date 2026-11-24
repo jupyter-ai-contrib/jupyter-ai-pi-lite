@@ -51,7 +51,7 @@
     "@earendil-works/pi-coding-agent": "^1.6.0",
     "@earendil-works/pi-mcp": "^1.6.0",
     "@earendil-works/pi-tui": "^1.6.0",
-    "@jupyter-ai/agent-lite": "^0.21.0",
+    "@jupyter-ai/agent-lite": "^0.21.0 || ^0.22.0",
     "@jupyter-ai/persona-manager": "^0.4.0",
     "@jupyter/chat": "^0.26.0",
     "@jupyterlab/application": "^4.5.8",
