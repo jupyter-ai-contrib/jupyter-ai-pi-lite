@@ -398,8 +398,9 @@ export async function registerProviders(
     return;
   }
 
+  // Refresh all the providers, not only the new ones: the background refresh
+  // from registerNativeProvider() discards the result of a partial refresh.
   const { aborted } = await runtime.refresh({
-    providers: addedProviders,
     allowNetwork: false,
     signal: AbortSignal.timeout(REGISTER_TIMEOUT_MS)
   });
