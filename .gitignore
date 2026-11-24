@@ -137,6 +137,7 @@ ui-tests/test-results/
 ui-tests/playwright-report/
 ui-tests/.jupyter_ystore.db
 ui-tests/.jupyter/
+ui-tests/labextensions/
 demo/test-results/
 demo/playwright-report/
 

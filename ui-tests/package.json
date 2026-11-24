@@ -1,0 +1,18 @@
+{
+  "name": "jupyter-ai-pi-lite-ui-tests",
+  "version": "1.0.0",
+  "description": "jupyter-ai-pi-lite Integration Tests",
+  "private": true,
+  "workspaces": [
+    "extension"
+  ],
+  "scripts": {
+    "build": "jupyter-builder build extension",
+    "start": "jupyter lab --config jupyter_server_test_config.py",
+    "test": "jlpm playwright test"
+  },
+  "devDependencies": {
+    "@jupyterlab/galata": "^5.6.0",
+    "@playwright/test": "^1.60.0"
+  }
+}

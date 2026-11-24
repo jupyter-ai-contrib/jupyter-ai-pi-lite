@@ -59,6 +59,28 @@ jlpm build && jlpm update:demo
 
 Rebuild the whole site with `uv sync` and `uv run jupyter lite build` after changing the demo dependencies (`demo/pyproject.toml`), its configuration (`demo/jupyter-lite.json`, `demo/overrides.json`) or its contents.
 
+## Running UI tests
+
+The UI tests use Playwright and Galata. See the [README of the UI tests](ui-tests/README.md) to install and run them.
+
+They can be configured with environment variables:
+
+- `PWVIDEO`: Controls video recording during tests (default: `retain-on-failure`)
+  - `on`: Record video for all tests
+  - `off`: Do not record video
+  - `retain-on-failure`: Only keep videos for failed tests
+- `PWSLOWMO`: Adds a delay (in milliseconds) between Playwright actions for debugging (default: `0`)
+
+Example usage:
+
+```bash
+# Record all test videos
+PWVIDEO=on jlpm playwright test
+
+# Slow down test execution by 500ms per action
+PWSLOWMO=500 jlpm playwright test
+```
+
 ## Contributing to documentation
 
 The documentation is built using [MyST](https://mystmd.org/) and [Jupyter Book](https://jupyterbook.org/). The source files are located in the `docs/` folder.

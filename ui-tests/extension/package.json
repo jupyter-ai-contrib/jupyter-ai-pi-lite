@@ -1,0 +1,22 @@
+{
+  "name": "pi-lite-test-provider",
+  "version": "1.0.0",
+  "description": "A model provider for the integration tests of jupyter-ai-pi-lite",
+  "private": true,
+  "main": "index.js",
+  "devDependencies": {
+    "@jupyter/builder": "^1.2.2"
+  },
+  "jupyterlab": {
+    "extension": true,
+    "outputDir": "../labextensions/pi-lite-test-provider",
+    "schemaDir": "schema",
+    "sharedPackages": {
+      "@jupyter-ai/pi-lite": {
+        "bundled": false,
+        "singleton": true,
+        "requiredVersion": "*"
+      }
+    }
+  }
+}

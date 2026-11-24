@@ -1,0 +1,14 @@
+{
+  "title": "Test Provider",
+  "description": "Settings of the model provider of the integration tests",
+  "type": "object",
+  "properties": {
+    "enabled": {
+      "type": "boolean",
+      "title": "Enabled",
+      "description": "Whether the provider is set up. pi hides the models of a provider that is not set up.",
+      "default": false
+    }
+  },
+  "additionalProperties": false
+}
