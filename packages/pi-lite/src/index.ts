@@ -167,7 +167,8 @@ const personaPlugin: JupyterFrontEndPlugin<void> = {
 
 const providerRegistryPlugin: JupyterFrontEndPlugin<IPiProviderRegistry> = {
   id: '@jupyter-ai/pi-lite:providerRegistry',
-  description: 'The registry allowing extensions to add new providers or modify cloned providers',
+  description:
+    'The registry allowing extensions to add new providers or modify cloned providers',
   autoStart: true,
   provides: IPiProviderRegistry,
   activate: (app: JupyterFrontEnd): IPiProviderRegistry => {
