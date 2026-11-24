@@ -18,6 +18,12 @@ import type {
 } from '../tokens';
 
 /**
+ * How long a new session waits for the auth of the providers of the other
+ * extensions.
+ */
+const REGISTER_TIMEOUT_MS = 5_000;
+
+/**
  * The OpenRouter sign-in of pi in a popup window, which OpenRouter sends
  * back to the page itself.
  */
@@ -349,10 +355,11 @@ function generateCustomProvider(registered: IPiCustomProvider): Provider<Api> {
  * Give pi the providers of the other extensions. They need a new id, and a
  * clone a provider of pi to clone: the others are rejected.
  */
-export function registerProviders(
+export async function registerProviders(
   runtime: ModelRuntime,
   registry: IPiProviderRegistry
-): void {
+): Promise<void> {
+  const addedProviders: string[] = [];
   for (const registered of registry.newProviders) {
     const base = runtime.getProvider(registered.id);
     if (base) {
@@ -362,6 +369,7 @@ export function registerProviders(
       continue;
     }
     runtime.registerNativeProvider(generateCustomProvider(registered));
+    addedProviders.push(registered.id);
   }
   for (const registered of registry.clonedProviders) {
     const base = runtime.getProvider(registered.from);
@@ -384,5 +392,20 @@ export function registerProviders(
       continue;
     }
     runtime.registerNativeProvider(generateClonedProvider(base, registered));
+    addedProviders.push(registered.id);
+  }
+  if (!addedProviders.length) {
+    return;
+  }
+
+  const { aborted } = await runtime.refresh({
+    providers: addedProviders,
+    allowNetwork: false,
+    signal: AbortSignal.timeout(REGISTER_TIMEOUT_MS)
+  });
+  if (aborted) {
+    console.warn(
+      `pi: the providers ${addedProviders.join(', ')} are not ready after ${REGISTER_TIMEOUT_MS} ms`
+    );
   }
 }

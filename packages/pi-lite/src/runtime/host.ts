@@ -403,7 +403,10 @@ export class PiHost {
       // page is restored.
       await this._options.app.restored;
       await adaptProviders(services.modelRuntime);
-      registerProviders(services.modelRuntime, this._options.providerRegistry);
+      await registerProviders(
+        services.modelRuntime,
+        this._options.providerRegistry
+      );
       const scope = await modelScope(services, sessionManager);
       const { model, provider, thinking } = options.args ?? {};
       const cli = model
