@@ -792,7 +792,7 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
-    { name = "jupyter-ai-agent-lite", specifier = ">=0.21.0,<0.23" },
+    { name = "jupyter-ai-agent-lite", specifier = ">=0.22.0,<0.23" },
     { name = "jupyter-ai-persona-manager", specifier = ">=0.4.0,<0.5" },
     { name = "jupyter-chat-components", specifier = ">=0.7.0,<0.8" },
     { name = "jupyter-mcp-manager", specifier = ">=0.2.0,<0.3" },

@@ -1489,7 +1489,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jupyter-ai/agent-lite@npm:^0.21.0 || ^0.22.0":
+"@jupyter-ai/agent-lite@npm:^0.22.0":
   version: 0.22.0
   resolution: "@jupyter-ai/agent-lite@npm:0.22.0"
   dependencies:
@@ -1548,7 +1548,7 @@ __metadata:
     "@earendil-works/pi-coding-agent": ^1.6.0
     "@earendil-works/pi-mcp": ^1.6.0
     "@earendil-works/pi-tui": ^1.6.0
-    "@jupyter-ai/agent-lite": ^0.21.0 || ^0.22.0
+    "@jupyter-ai/agent-lite": ^0.22.0
     "@jupyter-ai/persona-manager": ^0.4.0
     "@jupyter/builder": ^1.2.2
     "@jupyter/chat": ^0.26.0
