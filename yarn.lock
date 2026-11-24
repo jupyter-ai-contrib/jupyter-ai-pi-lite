@@ -1489,9 +1489,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jupyter-ai/agent-lite@npm:^0.21.0":
-  version: 0.21.0
-  resolution: "@jupyter-ai/agent-lite@npm:0.21.0"
+"@jupyter-ai/agent-lite@npm:^0.22.0":
+  version: 0.22.0
+  resolution: "@jupyter-ai/agent-lite@npm:0.22.0"
   dependencies:
     "@jupyterlab/application": ^4.5.8
     "@jupyterlab/apputils": ^4.6.8
@@ -1506,9 +1506,9 @@ __metadata:
     "@lumino/disposable": ^2.1.4
     "@lumino/signaling": ^2.1.4
     "@lumino/widgets": ^2.7.1
-    yaml: ^2.8.1
-    zod: ^4.3.6
-  checksum: cbcb1eddada7ccb5d40d0e081110404b7e74c5ee51c68d6deae199893445a91a75d84d4d5fc423897aeaa9d1b5eab8838a39f77c1c809bc17154cd78e9a89bf3
+    yaml: ^2.9.1
+    zod: ^4.6.6
+  checksum: dea2ac7d89aefaf05a638f1090bce73d283fbacba3c7c03f61d050f87d4fe47d5932fd4d555a50f12d3e368cb32368e07140761809a1d6c8e17df3ea4ac2dbe3
   languageName: node
   linkType: hard
 
@@ -1548,7 +1548,7 @@ __metadata:
     "@earendil-works/pi-coding-agent": ^1.6.0
     "@earendil-works/pi-mcp": ^1.6.0
     "@earendil-works/pi-tui": ^1.6.0
-    "@jupyter-ai/agent-lite": ^0.21.0
+    "@jupyter-ai/agent-lite": ^0.22.0
     "@jupyter-ai/persona-manager": ^0.4.0
     "@jupyter/builder": ^1.2.2
     "@jupyter/chat": ^0.26.0
@@ -8869,7 +8869,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yaml@npm:^2.8.1":
+"yaml@npm:^2.9.1":
   version: 2.9.1
   resolution: "yaml@npm:2.9.1"
   bin:
@@ -8908,7 +8908,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zod@npm:^4.3.6":
+"zod@npm:^4.6.6":
   version: 4.6.7
   resolution: "zod@npm:4.6.7"
   checksum: 6801f5067dd43204d5ed2b4f2f0d09f891365ecfdd385877901e42f6f6ebf67e8943b385c71eaba53081029dd21f4740f16c91497a06f95195e209bffef92056
